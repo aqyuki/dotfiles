@@ -52,6 +52,7 @@ fi
 
 ## alias
 alias lg="lazygit"
+alias cat="bat"
 
 export GPG_TTY=$(tty)
 
