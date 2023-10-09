@@ -68,3 +68,5 @@ function peco-projects () {
 }
 zle -N peco-projects
 bindkey '^]' peco-projects
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
