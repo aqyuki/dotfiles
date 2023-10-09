@@ -60,6 +60,7 @@ fi
 ## alias
 alias lg="lazygit"
 alias cat="bat"
+alias open="wsl-open"
 
 export GPG_TTY=$(tty)
 
