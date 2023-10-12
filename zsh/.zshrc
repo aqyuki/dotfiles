@@ -1,3 +1,5 @@
+export GPG_TTY=$TTY
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -61,8 +63,6 @@ fi
 alias lg="lazygit"
 alias cat="bat"
 alias open="wsl-open"
-
-export GPG_TTY=$(tty)
 
 source $HOME/.cargo/env
 
