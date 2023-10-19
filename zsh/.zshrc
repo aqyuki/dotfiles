@@ -75,7 +75,7 @@ function peco-projects () {
   zle clear-screen
 }
 zle -N peco-projects
-bindkey '^]' peco-projects
+bindkey '^g' peco-projects
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
