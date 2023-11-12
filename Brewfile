@@ -1,6 +1,5 @@
 tap "homebrew/bundle"
 brew "bat"
-brew "deno"
 brew "fzf"
 brew "gcc"
 brew "gh"
