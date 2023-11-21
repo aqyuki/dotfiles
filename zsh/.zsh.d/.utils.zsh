@@ -10,3 +10,9 @@ function peco-repositories () {
 }
 zle -N peco-repositories
 bindkey '^g' peco-repositories
+
+function zsh-plugin-update () {
+  echo "Update zsh plugins..."
+  zinit update --all
+  echo "Recommend to reload .zshrc"
+}
