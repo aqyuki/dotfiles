@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-function peco-projects () {
+function peco-repositories () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -8,5 +8,5 @@ function peco-projects () {
   fi
   zle clear-screen
 }
-zle -N peco-projects
-bindkey '^g' peco-projects
+zle -N peco-repositories
+bindkey '^g' peco-repositories
