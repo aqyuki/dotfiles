@@ -16,6 +16,7 @@ ln -s $script_dir/$zsh_script_root/$zsh_script_dir $HOME/
 # Install git config
 ## copy config file
 cp $script_dir/git/common.ini $HOME/.gitconfig
+touch $HOME/gitconfig.local
 
 # Install tool config
 ## copy config file
