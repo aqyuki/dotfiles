@@ -16,6 +16,15 @@
 [core]
   editor=nano
 
+[alias]
+  ch = checkout
+  c = commit
+  s = status
+  st = stash
+  b = branch
+  f = fetch
+  fp = fetch --prune
+
 # tool config
 [ghq]
   vcs=git
