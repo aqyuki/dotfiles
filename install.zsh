@@ -20,7 +20,7 @@ touch $HOME/.gitconfig.local
 
 # Install tool config
 ## copy config file
-cp -s $script_dir/lazygit/config.yml $HOME/.config/lazygit/config.yml
+ln -s $script_dir/lazygit/config.yml $HOME/.config/lazygit/config.yml
 
 # create .symbolic links
 ln -s $script_dir/nvim $HOME/.config/
