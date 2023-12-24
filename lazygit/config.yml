@@ -171,7 +171,7 @@ keybinding:
     checkForUpdate: 'u'
     recentRepos: '<enter>'
   files:
-    commitChanges: 'C'
+    commitChanges: 'c'
     commitChangesWithoutHook: 'w' # commit changes without pre-commit hook
     amendLastCommit: 'A'
     confirmDiscard: 'x'
@@ -235,7 +235,7 @@ keybinding:
     update: 'u'
     bulkMenu: 'b'
 customCommands:
-  - key: "c"
+  - key: "<c-v>"
     context: "global"
     description: "Create new conventional commit"
     prompts:
