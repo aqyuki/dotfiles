@@ -40,7 +40,7 @@ ZSH_SCRIPTS="$HOME/.zsh.d"
 [[ ! -f "$ZSH_SCRIPTS/.utils.zsh" ]] || source "$ZSH_SCRIPTS/.utils.zsh"
 
 ## go tool directory
-export PATH=$HOME/go/bin:$PATH
+[[ ! -f "$ZSH_SCRIPTS/.go.zsh" ]] || source "$ZSH_SCRIPTS/.go.zsh"
 
 # rust tool directory
 source $HOME/.cargo/env
