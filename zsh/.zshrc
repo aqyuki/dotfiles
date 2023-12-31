@@ -44,3 +44,6 @@ ZSH_SCRIPTS="$HOME/.zsh.d"
 
 # rust tool directory
 source $HOME/.cargo/env
+
+# import windows path
+export PATH=$PATH:$HOME/.windows
