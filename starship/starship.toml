@@ -1,0 +1,31 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+$directory($git_branch)($git_state)($fill)($bun)($golang)($rust)  ($time)
+$character
+"""
+
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
+[bun]
+format = " [$symbol($version)]($style)"
+
+[golang]
+format = " [$symbol($version)]($style)"
+symbol = " "
+
+[rust]
+format = " [$symbol($version)]($style)"
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[time]
+disabled = false
+format = '[\[ $time \]]($style)'
