@@ -22,5 +22,4 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
-zi ice depth=1; zi light romkatv/powerlevel10k
 zi light z-shell/F-Sy-H

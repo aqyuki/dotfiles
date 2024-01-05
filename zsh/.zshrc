@@ -1,12 +1,5 @@
 export GPG_TTY=$TTY
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ## setup linuxbrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -17,9 +10,6 @@ ZSH_SCRIPTS="$HOME/.zsh.d"
 
 ## import alias
 [[ ! -f "$ZSH_SCRIPTS/.alias.zsh" ]] || source "$ZSH_SCRIPTS/.alias.zsh"
-
-## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "$ZSH_SCRIPTS/.p10k.zsh" ]] || source "$ZSH_SCRIPTS/.p10k.zsh"
 
 ## asdf setup
 [[ ! -f "$ZSH_SCRIPTS/.asdf.zsh" ]] || source "$ZSH_SCRIPTS/.asdf.zsh"
@@ -41,6 +31,9 @@ ZSH_SCRIPTS="$HOME/.zsh.d"
 
 ## go tool directory
 [[ ! -f "$ZSH_SCRIPTS/.go.zsh" ]] || source "$ZSH_SCRIPTS/.go.zsh"
+
+## starship setup
+eval "$(starship init zsh)"
 
 # rust tool directory
 source $HOME/.cargo/env
