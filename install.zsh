@@ -21,6 +21,7 @@ touch $HOME/.gitconfig.local
 # Install tool config
 ## copy config file
 ln -s $script_dir/lazygit/config.yml $HOME/.config/lazygit/config.yml
+ln -s $script_dir/starship/starship.toml $HOME/.config/starship.toml
 
 # create .symbolic links
 ln -s $script_dir/nvim $HOME/.config/
