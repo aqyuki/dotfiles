@@ -1,9 +1,7 @@
-[include]
-  path = ~/.gitconfig.local
-
 [user]
   name=aqyuki
   email=yksk171118@gmail.com
+	signingKey = 4F40AD589E1ECE72
 
 [init]
   defaultBranch=main
