@@ -11,9 +11,6 @@ ZSH_SCRIPTS="$HOME/.zsh.d"
 ## import alias
 [[ ! -f "$ZSH_SCRIPTS/.alias.zsh" ]] || source "$ZSH_SCRIPTS/.alias.zsh"
 
-## asdf setup
-[[ ! -f "$ZSH_SCRIPTS/.asdf.zsh" ]] || source "$ZSH_SCRIPTS/.asdf.zsh"
-
 ## bun setup
 [[ ! -f "$ZSH_SCRIPTS/.bun.zsh" ]] || source "$ZSH_SCRIPTS/.bun.zsh"
 
