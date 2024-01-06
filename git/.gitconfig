@@ -27,3 +27,6 @@
 [ghq]
   vcs=git
   root=~/repo
+
+[gh]
+  root=~/repo
