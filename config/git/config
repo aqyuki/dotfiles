@@ -1,0 +1,17 @@
+[include]
+  path = $XDG_CONFIG_HOME/git/gpg.ini
+
+[user]
+  name=aqyuki
+  email=uwaaa@aqyuki.dev
+
+[init]
+  defaultBranch=main
+  defaultRemote=origin
+  defaultRemoteBranch=main
+
+[commit]
+  gpgsign=true
+
+[core]
+  editor=vim
