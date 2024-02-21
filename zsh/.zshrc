@@ -52,4 +52,7 @@ if [[ -f $DOTFILE_ROOT/zsh/utils.zsh ]]; then
   source $DOTFILE_ROOT/zsh/utils.zsh
 fi
 
+# mise
+eval "$(mise activate zsh)"
+
 typeset -U PATH
