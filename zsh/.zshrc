@@ -32,8 +32,8 @@ if [[ -f $DOTFILE_ROOT/zsh/alias.zsh ]]; then
 fi
 
 # Go settings
-export GOPATH=$RUNTIME_ROOT/go
-export GOROOT=$HOME/go
+export GOROOT=$RUNTIME_ROOT/go
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$RUNTIME_ROOT/go/bin:$GOBIN
 
