@@ -56,6 +56,6 @@ fi
 eval "$(mise activate zsh)"
 
 # enable direnv
-eval $(direnv hook zsh)
+eval "$(direnv hook zsh)"
 
 typeset -U PATH
