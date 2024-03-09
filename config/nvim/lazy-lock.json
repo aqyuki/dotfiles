@@ -1,0 +1,6 @@
+{
+  "coc.nvim": { "branch": "release", "commit": "0ce9a96b95e5d88181b0bed26f40922d1bf65b90" },
+  "lazy.nvim": { "branch": "main", "commit": "83493db50a434a4c5c648faf41e2ead80f96e478" },
+  "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
+  "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" }
+}
