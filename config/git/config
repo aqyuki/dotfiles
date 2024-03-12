@@ -15,3 +15,10 @@
 
 [core]
   editor=vim
+
+[rebase]
+    updateRefs = true
+[fetch]
+    prune = true
+[status]
+    showUntrackedFiles = all
