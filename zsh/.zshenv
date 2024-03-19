@@ -16,3 +16,5 @@ export RUNTIME_ROOT=$HOME/.runtime
 # Tool configs
 export GHQ_ROOT=$HOME/repo
 
+# Homebrew
+export HOMEBREW_NO_ENV_HINTS=1
