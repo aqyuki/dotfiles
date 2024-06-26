@@ -1,0 +1,13 @@
+[user]
+	email = aqyuki@aqyuki.dev
+	name = aqyuki
+	signingkey = 50CB878774488C3B690B88C54F40AD589E1ECE72
+
+[init]
+	defaultBranch = master
+
+[fetch]
+	prune = true
+
+[commit]
+	gpgsign = true
