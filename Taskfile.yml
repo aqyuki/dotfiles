@@ -1,0 +1,13 @@
+version: "3"
+
+tasks:
+  export-pkg:
+    cmds:
+      - yay -Qeq > pkglist.txt
+    silent: true
+    desc: "Export package list to pkglist.txt"
+  install-pkg:
+    cmds:
+      - yay -S --needed - < pkglist.txt
+    silent: true
+    desc: "Install packages from pkglist.txt"
