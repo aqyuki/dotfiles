@@ -40,7 +40,7 @@ require('lazy').setup({
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require('lspconfig')
 
-            lspconfig["gopls"].setup {
+            lspconfig["gopls"].setup({
                 capabilities = capabilities,
                 settings = {
                     gopls = {
@@ -50,10 +50,35 @@ require('lazy').setup({
                     },
                     staticcheck = true
                 }
-            }
+            })
+
+        local on_attach = function(client)   
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end
-    }, -- completion
-    {
+
+        lspconfig.rust_analyzer.setup({
+          on_attach = on_attach,
+          settings = {
+            ["rust-analyzer"] = {
+              imports = {
+                granularity = {
+                  group = "module",
+                },
+                prefix = "self",
+              },
+              cargo = {
+                buildScripts = {
+                  enable = true,
+                },
+              },
+              procMacro = {
+                enable = true
+              },
+            }
+          }
+        })
+        end
+    }, { -- completion
         "hrsh7th/nvim-cmp",
         dependencies = {"hrsh7th/cmp-nvim-lsp"},
         config = function()
@@ -180,23 +205,21 @@ require('lazy').setup({
             -- …etc.
         },
         version = '^1.0.0'
-    },{
-      "nvim-tree/nvim-tree.lua",
-      dependencies = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-        vim.g.loaded_netrw = 1
-        vim.g.loaded_netrwPlugin = 1
-        vim.opt.termguicolors = true
-        require("nvim-tree").setup({
-          actions = {
-            open_file = {
-              quit_on_open = true,
-            },
-          },
-        })
-      end
+    }, {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = {"nvim-tree/nvim-web-devicons"},
+        config = function()
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
+            vim.opt.termguicolors = true
+            require("nvim-tree").setup({
+                actions = {
+                    open_file = {
+                        quit_on_open = true
+                    }
+                }
+            })
+        end
     }},
     -- automatically check for plugin updates
     checker = {
@@ -204,7 +227,11 @@ require('lazy').setup({
     }
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(ev)
+    vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.go",
     callback = function()
         local params = vim.lsp.util.make_range_params()
@@ -223,7 +250,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.lsp.buf.format({
             async = false
         })
-    end
+      end
+    })
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = { "*.rs", "*.py", "*.ts" },
+      callback = function()
+        vim.lsp.buf.format({
+          buffer = ev.buf,
+          filter = function(f_client)
+            return f_client.name ~= "null-ls"
+          end,
+          async = false,
+        })
+      end,
+    })
+  end,
 })
 
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
@@ -272,4 +314,4 @@ vim.keymap.set('n', '<C-k>', '<Cmd>BufferNext<CR>')
 vim.keymap.set('n', '<leader>w', '<Cmd>BufferClose<CR>')
 
 -- filer
-vim.keymap.set('n','<C-b>','<Cmd>NvimTreeToggle .<CR>')
+vim.keymap.set('n', '<C-b>', '<Cmd>NvimTreeToggle .<CR>')
