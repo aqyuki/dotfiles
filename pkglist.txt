@@ -1,5 +1,9 @@
 base
 base-devel
+bat
+docker
+docker-buildx
+docker-compose
 fzf
 ghq
 git
@@ -8,10 +12,16 @@ go-task-bin
 lazygit
 lsd
 nano
+navi
+neovim
 openssh
+pueue
 reflector
 ripgrep
 sudo
+tmux
+tokei
+tree
 unzip
 vim
 wget
