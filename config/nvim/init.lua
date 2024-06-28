@@ -180,7 +180,18 @@ require('lazy').setup({
             -- …etc.
         },
         version = '^1.0.0'
-    }}, 
+    },{
+      "nvim-tree/nvim-tree.lua",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
+        vim.opt.termguicolors = true
+        require("nvim-tree").setup()
+      end
+    }},
     -- automatically check for plugin updates
     checker = {
         enabled = false
@@ -239,10 +250,7 @@ augroup END
 ]]
 
 -- fzf-lua
-vim.keymap.set('n', '<leader>e', "<cmd>lua require('fzf-lua').files()<CR>")
-vim.keymap.set('n', '<leader>g', "<cmd>lua require('fzf-lua').git_status()<CR>")
-vim.keymap.set('n', '<leader>b', "<cmd>lua require('fzf-lua').git_branches()<CR>")
-vim.keymap.set('n', '<leader>p', "<cmd>lua require('fzf-lua').grep()<CR>")
+vim.keymap.set('n', '<leader>p', "<cmd>lua require('fzf-lua').files()<CR>")
 vim.keymap.set('n', '<leader>/', "<cmd>lua require('fzf-lua').blines()<CR>")
 
 vim.keymap.set('n', '<leader>r', "<cmd>lua require('fzf-lua').lsp_references()<CR>")
@@ -256,3 +264,6 @@ vim.keymap.set('n', '<leader>l', "<cmd>lua require('fzf-lua').diagnostics_docume
 vim.keymap.set('n', '<C-j>', '<Cmd>BufferPrevious<CR>')
 vim.keymap.set('n', '<C-k>', '<Cmd>BufferNext<CR>')
 vim.keymap.set('n', '<leader>w', '<Cmd>BufferClose<CR>')
+
+-- filer
+vim.keymap.set('n','<C-b>','<Cmd>NvimTreeToggle .<CR>')
