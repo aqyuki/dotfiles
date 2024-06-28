@@ -85,16 +85,16 @@ require('lazy').setup({
     {
         "nvim-treesitter/nvim-treesitter",
         config = function()
-          local opts = {
-            ensure_installed = {'go', 'lua'},
-            highlight = {
-                enable = true
-            },
-            indent = {
-                enable = true
-            },
-          }
-          require('nvim-treesitter.configs').setup(opts)
+            local opts = {
+                ensure_installed = {'go', 'lua'},
+                highlight = {
+                    enable = true
+                },
+                indent = {
+                    enable = true
+                }
+            }
+            require('nvim-treesitter.configs').setup(opts)
         end
     }, -- git util
     {
@@ -180,6 +180,10 @@ require('lazy').setup({
             -- …etc.
         },
         version = '^1.0.0'
+    }, -- github copilot
+    {
+        "github/copilot.vim",
+        lazy = false
     }},
     -- -- automatically check for plugin updates
     checker = {
