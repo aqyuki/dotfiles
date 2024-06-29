@@ -5,3 +5,7 @@ keybase
 lazy-lock.json
 apps.json
 versions.json
+
+# tmux plugins
+**/tmux/plugins/
+
