@@ -23,64 +23,26 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    -- plugins
-    spec = { -- color scheme
-    {
+    spec = {{
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
         config = function()
             vim.cmd([[colorscheme tokyonight-storm]])
         end
-    }, -- lsp
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {'hrsh7th/cmp-nvim-lsp', "hrsh7th/nvim-cmp"},
+    }, {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = {"williamboman/mason.nvim", "neovim/nvim-lspconfig"},
         config = function()
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            local lspconfig = require('lspconfig')
-
-            lspconfig["gopls"].setup({
-                capabilities = capabilities,
-                settings = {
-                    gopls = {
-                        analyses = {
-                            unusedparams = true
-                        }
-                    },
-                    staticcheck = true
+            require('mason').setup({})
+            require('mason-lspconfig').setup_handlers({function(server)
+                local opt = {
+                    capabilities = require('cmp_nvim_lsp').default_capabilities()
                 }
-            })
-
-            local on_attach = function(client)
-                vim.lsp.inlay_hint.enable(true, {
-                    bufnr = bufnr
-                })
-            end
-
-            lspconfig.rust_analyzer.setup({
-                on_attach = on_attach,
-                settings = {
-                    ["rust-analyzer"] = {
-                        imports = {
-                            granularity = {
-                                group = "module"
-                            },
-                            prefix = "self"
-                        },
-                        cargo = {
-                            buildScripts = {
-                                enable = true
-                            }
-                        },
-                        procMacro = {
-                            enable = true
-                        }
-                    }
-                }
-            })
+                require('lspconfig')[server].setup(opt)
+            end})
         end
-    }, { -- completion
+    }, {
         "hrsh7th/nvim-cmp",
         dependencies = {"hrsh7th/cmp-nvim-lsp"},
         config = function()
@@ -103,13 +65,11 @@ require('lazy').setup({
                 }
             })
         end
-    }, -- カッコを勝手に閉じてくれる
-    {
+    }, {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
-    }, -- syntax highlit
-    {
+    }, {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             local opts = {
@@ -123,8 +83,7 @@ require('lazy').setup({
             }
             require('nvim-treesitter.configs').setup(opts)
         end
-    }, -- git util
-    {
+    }, {
         "lewis6991/gitsigns.nvim",
         opts = {
             signs = {
@@ -191,8 +150,7 @@ require('lazy').setup({
                 fullscreen = false
             }
         }
-    }, -- barbar.nvim
-    {
+    }, {
         "romgrk/barbar.nvim",
         dependencies = {'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
         'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
@@ -200,12 +158,6 @@ require('lazy').setup({
         init = function()
             vim.g.barbar_auto_setup = false
         end,
-        opts = {
-            -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-            -- animation = true,
-            -- insert_at_start = true,
-            -- …etc.
-        },
         version = '^1.0.0'
     }, {
         "nvim-tree/nvim-tree.lua",
@@ -281,11 +233,10 @@ vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
--- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false
 })
--- Reference highlight
+
 vim.cmd [[
 set updatetime=400
 highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
@@ -298,10 +249,8 @@ augroup lsp_document_highlight
 augroup END
 ]]
 
--- fzf-lua
 vim.keymap.set('n', '<leader>p', "<cmd>lua require('fzf-lua').files()<CR>")
 vim.keymap.set('n', '<leader>/', "<cmd>lua require('fzf-lua').blines()<CR>")
-
 vim.keymap.set('n', '<leader>r', "<cmd>lua require('fzf-lua').lsp_references()<CR>")
 vim.keymap.set('n', '<leader>d', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>")
 vim.keymap.set('n', '<leader>D', "<cmd>lua require('fzf-lua').lsp_declarations()<CR>")
