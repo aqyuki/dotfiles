@@ -6,6 +6,9 @@ vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.cursorline = true
 vim.opt.number = true
+vim.opt.fixendofline = true
+vim.opt.endofline = true
+vim.g.editorconfig = true
 
 -- keymap
 
@@ -245,6 +248,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         })
     end
 })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    vim.cmd[[call append(line('$'), '')]]
+  end
+})
 
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 -- vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
@@ -285,3 +294,4 @@ vim.keymap.set('n', '<leader>w', '<Cmd>BufferClose<CR>')
 
 -- filer
 vim.keymap.set('n', '<C-b>', '<Cmd>NvimTreeToggle .<CR>')
+
