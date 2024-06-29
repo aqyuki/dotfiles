@@ -1,5 +1,3 @@
-local vim = require('vim')
-
 -- option
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
@@ -36,13 +34,32 @@ require('lazy').setup({
         "williamboman/mason-lspconfig.nvim",
         dependencies = {"williamboman/mason.nvim", "neovim/nvim-lspconfig"},
         config = function()
-            require('mason').setup({})
-            require('mason-lspconfig').setup_handlers({function(server)
-                local opt = {
-                    capabilities = require('cmp_nvim_lsp').default_capabilities()
-                }
-                require('lspconfig')[server].setup(opt)
-            end})
+        require('mason').setup({})
+        require('mason-lspconfig').setup_handlers({function(server)
+          local opt = {
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            on_attach = function(client, bufnr)
+              if client.supports_method "textDocument/documentHighlight" then
+                local lsp_document_highlight = vim.api.nvim_create_augroup("lsp_document_highlight", {})
+                vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+                  group = lsp_document_highlight,
+                  buffer = bufnr,
+                  callback = function ()
+                    vim.lsp.buf.document_highlight()
+                  end
+                })
+                vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"},{
+                  group = lsp_document_highlight,
+                  buffer = bufnr,
+                  callback = function ()
+                    vim.lsp.buf.clear_references()
+                  end,
+                })
+              end
+            end,
+          }
+          require('lspconfig')[server].setup(opt)
+        end})
         end
     }, {
         "hrsh7th/nvim-cmp",
@@ -160,6 +177,9 @@ require('lazy').setup({
         init = function()
             vim.g.barbar_auto_setup = false
         end,
+        opts = {
+        animation = true,
+      },
         version = '^1.0.0'
     }, {
         "nvim-tree/nvim-tree.lua",
@@ -244,11 +264,6 @@ set updatetime=400
 highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
 highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
 highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-augroup lsp_document_highlight
-  autocmd!
-  autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.document_highlight()
-  autocmd CursorMoved,CursorMovedI * lua vim.lsp.buf.clear_references()
-augroup END
 ]]
 
 vim.keymap.set('n', '<leader>p', "<cmd>lua require('fzf-lua').files()<CR>")
