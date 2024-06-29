@@ -251,7 +251,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
-    vim.cmd[[call append(line('$'), '')]]
+    if vim.fn.getline('$') ~= '' then
+      vim.api.nvim_buf_set_lines(0, -1, -1, false, {''})
+    end
   end
 })
 
