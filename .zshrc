@@ -58,6 +58,14 @@ export GHQ_ROOT=$XDG_DATA_HOME/source
 ##========= gh ================================##
 eval "$(gh completion --shell zsh)"
 
+##========= fnm ===============================##
+FNM_PATH="/home/aqyuki/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/aqyuki/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+eval "$(fnm completions --shell zsh)"
+
 #========= utils ==============================#
 function ghq-fzf() {
   local src=$(ghq list | fzf  --color --preview "git --git-dir $(ghq root)/{}/.git log --date=short --pretty=format:'%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset'")
@@ -69,3 +77,4 @@ function ghq-fzf() {
 }
 zle -N ghq-fzf
 bindkey '^g' ghq-fzf
+
