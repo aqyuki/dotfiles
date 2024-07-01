@@ -4,6 +4,7 @@ export GPG_TTY=$(tty)
 alias ls='lsd'
 alias lg='lazygit'
 alias task='go-task'
+alias ide='dev-tmux-session'
 
 #========== Language ===========================#
 
