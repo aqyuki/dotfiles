@@ -2,7 +2,6 @@ hosts.yml
 autostart
 go
 keybase
-lazy-lock.json
 apps.json
 versions.json
 
