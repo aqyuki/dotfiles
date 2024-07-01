@@ -233,6 +233,14 @@ require('lazy').setup({
         end
     },
     {
+      "Wansmer/treesj",
+      keys = { '<leader>m' },
+      dependencies = { 'nvim-treesitter/nvim-treesitter' },
+      config = function ()
+        require('treesj').setup({})
+      end,
+    },
+    {
       "github/copilot.vim",
       lazy = false,
     },
