@@ -28,21 +28,25 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     spec = {
     {
-        "navarasu/onedark.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-        style = 'warm',
-      },
+      "navarasu/onedark.nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        local onedark = require('onedark')
+        onedark.setup({
+          style = 'cool',
+          transparent = true,
+          lualine = {
+            transparent = true,
+          },
+        })
+        onedark.load()
+      end,
     },
     {
       "nvim-lualine/lualine.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
-      opts = {
-        options = {
-          theme = 'onedark',
-        },
-      },
+      opts = { options = { theme = 'onedark' } },
     },
     {
         "williamboman/mason-lspconfig.nvim",
@@ -79,7 +83,7 @@ require('lazy').setup({
     },
     {
         "hrsh7th/nvim-cmp",
-        dependencies = {"hrsh7th/cmp-nvim-lsp","hrsh7th/cmp-path","hrsh7th/cmp-buffer","hrsh7th/cmp-cmdline"},
+        dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-buffer", "hrsh7th/cmp-cmdline" },
         config = function()
             local cmp = require('cmp')
             cmp.setup({
@@ -88,49 +92,20 @@ require('lazy').setup({
                     ["<C-]>"] = cmp.mapping.select_next_item(),
                     ['<C-p>'] = cmp.mapping.complete(),
                     ['<C-e>'] = cmp.mapping.abort(),
-                    ["<CR>"] = cmp.mapping.confirm {
-                        select = true
-                    }
+                    ["<CR>"] = cmp.mapping.confirm {select = true}
                 },
-                sources = {{
-                    name = 'nvim_lsp'
-                },{"buffer"},{"path"}},
-                experimental = {
-                    ghost_text = true
-                }
+                sources = {{name = 'nvim_lsp'}, {name = "buffer"}, {name = "path"}},
+                experimental = {ghost_text = true}
             })
-        cmp.setup.cmdline('/',{
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            { name = 'buffer'}
-          }
-        })
-        cmp.setup.cmdline(':',{
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            { name = 'buffer' },
-            { name = 'cmdline' },
-          }
-        })
+        cmp.setup.cmdline('/',{mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}})
+        cmp.setup.cmdline(':',{mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}, {name = 'cmdline'}}})
         end
     },
-    {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = true
-    },
+    {'windwp/nvim-autopairs', event = "InsertEnter", config = true},
     {
         "nvim-treesitter/nvim-treesitter",
         config = function()
-            local opts = {
-                ensure_installed = {'go'},
-                highlight = {
-                    enable = true
-                },
-                indent = {
-                    enable = true
-                }
-            }
+            local opts = {ensure_installed = {'go'}, highlight = {enable = true}, indent = {enable = true}}
             require('nvim-treesitter.configs').setup(opts)
         end
     },
@@ -138,82 +113,42 @@ require('lazy').setup({
         "lewis6991/gitsigns.nvim",
         opts = {
             signs = {
-                add = {
-                    text = '┃'
-                },
-                change = {
-                    text = '┃'
-                },
-                delete = {
-                    text = '_'
-                },
-                topdelete = {
-                    text = '‾'
-                },
-                changedelete = {
-                    text = '~'
-                },
-                untracked = {
-                    text = '┆'
-                }
+                add = {text = '┃'},
+                change = {text = '┃'},
+                delete = {text = '_'},
+                topdelete = {text = '‾'},
+                changedelete = {text = '~'},
+                untracked = {text = '┆'}
             },
             signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
             numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
             linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
             word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-            watch_gitdir = {
-                follow_files = true
-            },
+            watch_gitdir = {follow_files = true},
             auto_attach = true,
             attach_to_untracked = false,
-            current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-            current_line_blame_opts = {
-                virt_text = true,
-                virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-                delay = 1000,
-                ignore_whitespace = false,
-                virt_text_priority = 100
-            },
+            current_line_blame = false,
+            current_line_blame_opts = {virt_text = true, virt_text_pos = 'eol', delay = 1000, ignore_whitespace = false, virt_text_priority = 100},
             current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
             sign_priority = 6,
             update_debounce = 100,
             status_formatter = nil, -- Use default
             max_file_length = 40000, -- Disable if file is longer than this (in lines)
-            preview_config = {
-                -- Options passed to nvim_open_win
-                border = 'single',
-                style = 'minimal',
-                relative = 'cursor',
-                row = 0,
-                col = 1
-            }
+            preview_config = {border = 'single', style = 'minimal', relative = 'cursor', row = 0, col = 1}
         }
     },
     {
         'ibhagwan/fzf-lua',
         dependencies = {"kyazdani42/nvim-web-devicons"},
-        opts = {
-            winopts = {
-                height = 0.85,
-                width = 0.80,
-                row = 0.35,
-                col = 0.50,
-                border = 'rounded',
-                fullscreen = false
-            }
-        }
+        opts = {winopts = {height = 0.85, width = 0.80, row = 0.35, col = 0.50, border = 'rounded', fullscreen = false}}
     },
     {
         "romgrk/barbar.nvim",
-        dependencies = {'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-        'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
-        },
+        dependencies = {'lewis6991/gitsigns.nvim', 'nvim-tree/nvim-web-devicons'},
         init = function()
             vim.g.barbar_auto_setup = false
         end,
-        opts = {
-        animation = true,
-      },
+        opts = {animation = true},
         version = '^1.0.0'
     },
     {
@@ -224,11 +159,7 @@ require('lazy').setup({
             vim.g.loaded_netrwPlugin = 1
             vim.opt.termguicolors = true
             require("nvim-tree").setup({
-                actions = {
-                    open_file = {
-                        quit_on_open = true
-                    }
-                }
+                actions = {open_file = {quit_on_open = true}}
             })
         end
     },
@@ -240,15 +171,10 @@ require('lazy').setup({
         require('treesj').setup({})
       end,
     },
-    {
-      "github/copilot.vim",
-      lazy = false,
-    },
+    {"github/copilot.vim", lazy = false},
   },
     -- automatically check for plugin updates
-    checker = {
-        enabled = false
-    }
+    checker = {enabled = false}
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -258,9 +184,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             pattern = "*.go",
             callback = function()
                 local params = vim.lsp.util.make_range_params()
-                params.context = {
-                    only = {"source.organizeImports"}
-                }
+                params.context = {only = {"source.organizeImports"}}
                 local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
                 for cid, res in pairs(result or {}) do
                     for _, r in pairs(res.result or {}) do
@@ -270,9 +194,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
                         end
                     end
                 end
-                vim.lsp.buf.format({
-                    async = false
-                })
+                vim.lsp.buf.format({async = false})
             end
         })
 
@@ -311,9 +233,7 @@ vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true
-})
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {virtual_text = true})
 
 vim.cmd [[
 set updatetime=400
