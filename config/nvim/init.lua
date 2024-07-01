@@ -66,7 +66,7 @@ require('lazy').setup({
         end
     }, {
         "hrsh7th/nvim-cmp",
-        dependencies = {"hrsh7th/cmp-nvim-lsp"},
+        dependencies = {"hrsh7th/cmp-nvim-lsp","hrsh7th/cmp-path","hrsh7th/cmp-buffer","hrsh7th/cmp-cmdline"},
         config = function()
             local cmp = require('cmp')
             cmp.setup({
@@ -81,11 +81,24 @@ require('lazy').setup({
                 },
                 sources = {{
                     name = 'nvim_lsp'
-                }},
+                },{"buffer"},{"path"}},
                 experimental = {
                     ghost_text = true
                 }
             })
+        cmp.setup.cmdline('/',{
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = 'buffer'}
+          }
+        })
+        cmp.setup.cmdline(':',{
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = 'buffer' },
+            { name = 'cmdline' },
+          }
+        })
         end
     }, {
         'windwp/nvim-autopairs',
