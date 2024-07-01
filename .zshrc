@@ -21,8 +21,6 @@ export BUN_INSTALL=$XDG_DATA_HOME/bun
 export PATH=$PATH:$BUN_INSTALL/bin
 [ -s "/home/aqyuki/.local/share/bun/_bun" ] && source "/home/aqyuki/.local/share/bun/_bun"
 
-##========= direnv ============================##
-eval $(direnv hook zsh)
 #========== Scripts ============================#
 export PATH=$PATH:$HOME/.local/bin
 
@@ -67,6 +65,9 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 eval "$(fnm completions --shell zsh)"
+
+##========= direnv ============================##
+eval $(direnv hook zsh)
 
 #========= utils ==============================#
 function ghq-fzf() {
