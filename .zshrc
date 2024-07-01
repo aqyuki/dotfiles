@@ -67,7 +67,7 @@ fi
 eval "$(fnm completions --shell zsh)"
 
 ##========= direnv ============================##
-eval $(direnv hook zsh)
+eval "$(direnv hook zsh)"
 
 #========= utils ==============================#
 function ghq-fzf() {
