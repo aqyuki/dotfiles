@@ -26,14 +26,25 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    spec = {{
-        "folke/tokyonight.nvim",
+    spec = {
+    {
+        "navarasu/onedark.nvim",
         lazy = false,
         priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme tokyonight-storm]])
-        end
-    }, {
+        opts = {
+        style = 'warm',
+      },
+    },
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = {
+        options = {
+          theme = 'onedark',
+        },
+      },
+    },
+    {
         "williamboman/mason-lspconfig.nvim",
         dependencies = {"williamboman/mason.nvim", "neovim/nvim-lspconfig"},
         config = function()
@@ -62,9 +73,11 @@ require('lazy').setup({
             end,
           }
           require('lspconfig')[server].setup(opt)
-        end})
+        end,
+        })
         end
-    }, {
+    },
+    {
         "hrsh7th/nvim-cmp",
         dependencies = {"hrsh7th/cmp-nvim-lsp","hrsh7th/cmp-path","hrsh7th/cmp-buffer","hrsh7th/cmp-cmdline"},
         config = function()
@@ -100,11 +113,13 @@ require('lazy').setup({
           }
         })
         end
-    }, {
+    },
+    {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
-    }, {
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             local opts = {
@@ -118,7 +133,8 @@ require('lazy').setup({
             }
             require('nvim-treesitter.configs').setup(opts)
         end
-    }, {
+    },
+    {
         "lewis6991/gitsigns.nvim",
         opts = {
             signs = {
@@ -172,7 +188,8 @@ require('lazy').setup({
                 col = 1
             }
         }
-    }, {
+    },
+    {
         'ibhagwan/fzf-lua',
         dependencies = {"kyazdani42/nvim-web-devicons"},
         opts = {
@@ -185,7 +202,8 @@ require('lazy').setup({
                 fullscreen = false
             }
         }
-    }, {
+    },
+    {
         "romgrk/barbar.nvim",
         dependencies = {'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
         'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
@@ -197,7 +215,8 @@ require('lazy').setup({
         animation = true,
       },
         version = '^1.0.0'
-    }, {
+    },
+    {
         "nvim-tree/nvim-tree.lua",
         dependencies = {"nvim-tree/nvim-web-devicons"},
         config = function()
@@ -212,10 +231,12 @@ require('lazy').setup({
                 }
             })
         end
-    },{
+    },
+    {
       "github/copilot.vim",
       lazy = false,
-    }},
+    },
+  },
     -- automatically check for plugin updates
     checker = {
         enabled = false
