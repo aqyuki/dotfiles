@@ -1,0 +1,8 @@
+version: "3"
+
+tasks:
+  export:
+    silent: true
+    desc: "Export the package list"
+    cmds:
+      - pacman -Qeqn > packages.txt
