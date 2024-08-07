@@ -1,0 +1,49 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+    useConfig: false
+  allBranchesLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(white bold)%s%Creset%n' --
+  branchLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(white bold)%s%Creset%n' {{branchName}} --
+
+gui:
+  theme:
+    activeBorderColor:
+      - "#99d1db"
+      - bold
+    inactiveBorderColor:
+      - "#a5adce"
+    optionsTextColor:
+      - "#8caaee"
+    selectedLineBgColor:
+      - "#414559"
+    cherryPickedCommitBgColor:
+      - "#51576d"
+    cherryPickedCommitFgColor:
+      - "#99d1db"
+    unstagedChangesColor:
+      - "#e78284"
+    defaultFgColor:
+      - "#c6d0f5"
+    searchingActiveBorderColor:
+      - "#e5c890"
+  authorColors:
+    "*": "#babbf1"
+
+customCommands:
+  - key: "E"
+    description: "Add empty commit"
+    context: "commits"
+    prompts:
+      - type: "input"
+        title: "Commit message"
+        key: "CommitMessage"
+        initialValue: ""
+    command: git commit --allow-empty -m "{{.Form.CommitMessage}}"
+    loadingText: "Committing empty commit..."
+  - key: C
+    description: "Commit with gitmoji"
+    context: "files"
+    command: "gitmoji commit"
+    loadingText: "starting gitmoji cli"
+    subprocess: true
