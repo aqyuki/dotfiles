@@ -22,6 +22,7 @@ eval "$(zoxide init zsh)"
 eval "$(dblab completion zsh)"
 eval "$(pueue completions zsh)"
 eval "$(fnm env --use-on-cd)"
+eval "$(octocov completion zsh)"
 
 # fzf - ghq
 export GHQ_ROOT=$XDG_DATA_HOME/source
