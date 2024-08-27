@@ -21,7 +21,6 @@ eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 eval "$(dblab completion zsh)"
 eval "$(pueue completions zsh)"
-eval "$(fnm env --use-on-cd)"
 eval "$(octocov completion zsh)"
 
 # fzf - ghq
@@ -36,11 +35,3 @@ function repo-find() {
 }
 zle -N repo-find
 bindkey '^g' repo-find
-
-# pnpm
-export PNPM_HOME="/home/aqyuki/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
