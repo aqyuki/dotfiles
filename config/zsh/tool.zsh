@@ -16,6 +16,9 @@ export BUN_INSTALL=$XDG_DATA_HOME/bun
 export PATH=$PATH:$BUN_INSTALL/bin
 [ -s "$XDG_DATA_HOME/bun/_bun" ] && source "$XDG_DATA_HOME/bun/_bun"
 
+## mise shims
+export PATH="$XDG_DATA_HOME/mise/shims:$PATH"
+
 eval "$(gh completion --shell zsh)"
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
@@ -23,6 +26,8 @@ eval "$(dblab completion zsh)"
 eval "$(pueue completions zsh)"
 eval "$(octocov completion zsh)"
 eval "$(ngrok completion zsh)"
+eval "$(mise activate zsh)"
+eval "$(mise completion zsh)"
 
 # fzf - ghq
 export GHQ_ROOT=$XDG_DATA_HOME/source
