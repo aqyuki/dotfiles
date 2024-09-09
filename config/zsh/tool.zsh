@@ -29,6 +29,10 @@ eval "$(ngrok completion zsh)"
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
 
+# Taskfile
+fpath=( $XDG_COMPLETION_HOME "${fpath[@]}" )
+autoload -Uz _task
+
 # fzf - ghq
 export GHQ_ROOT=$XDG_DATA_HOME/source
 function repo-find() {
