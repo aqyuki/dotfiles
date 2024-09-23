@@ -28,6 +28,7 @@ eval "$(octocov completion zsh)"
 eval "$(ngrok completion zsh)"
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
+eval "$(lefthook completion zsh)"
 
 # Taskfile
 fpath=( $XDG_COMPLETION_HOME "${fpath[@]}" )
