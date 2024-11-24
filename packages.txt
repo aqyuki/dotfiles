@@ -3,7 +3,6 @@ base
 base-devel
 bat
 buf
-clang
 direnv
 dive
 docker
