@@ -18,9 +18,6 @@ eval "$(mise completion zsh)"
 # starship
 eval "$(starship init zsh)"
 
-# taskfile
-alias task=go-task
-
 # ghq
 export GHQ_ROOT=$HOME/.projects
 function ghq-fzf() {
