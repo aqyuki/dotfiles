@@ -29,4 +29,4 @@ function ghq-fzf() {
   zle -R -c
 }
 zle -N ghq-fzf
-bindkey '^g' ghq-fzf
+bindkey '^r' ghq-fzf
