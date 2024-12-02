@@ -23,3 +23,6 @@ export GHQ_ROOT=$HOME/.projects
 
 # gup
 eval "$(gup completion zsh)"
+
+# taskfile
+eval "$(task --completion zsh)"
