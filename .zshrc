@@ -14,3 +14,6 @@ export GPG_TTY=$(tty)
 
 # zsh config
 autoload -Uz compinit && compinit
+
+# Launch zellij
+eval "$(zellij setup --generate-auto-start zsh)"
