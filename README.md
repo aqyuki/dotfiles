@@ -6,7 +6,7 @@
 
 ## ✨ Dotfiles
 
-[しろね](https://github.com/aqyuki)のDotfilesです．開発環境で使用しているツールなどの設定をメインで管理しています．
+[しろね](https://github.com/aqyuki)のDotfilesです．開発環境で使用しているツールの設定を管理しています．
 
 ## 🔧 Stack
 - Manjaro Linux
