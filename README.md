@@ -1,5 +1,15 @@
-# README
+<h1 align="center">📖 README</h1>
 
-## dotfilesについて
+<div align="center">
+  <img src="./_asset/desktop.png" alt="Desktop image" width=600 />
+</div>
 
-開発用Linuxで使用している各種ソフトの設定を管理しているリポジトリです．
+## ✨ Dotfiles
+
+[しろね](https://github.com/aqyuki)のDotfilesです．開発環境で使用しているツールなどの設定をメインで管理しています．
+
+## 🔧 Stack
+- Manjaro Linux
+- zsh
+- VSCode
+- それ以外にもたくさん
