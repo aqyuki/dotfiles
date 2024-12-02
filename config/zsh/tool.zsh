@@ -20,3 +20,6 @@ eval "$(starship init zsh)"
 
 # ghq
 export GHQ_ROOT=$HOME/.projects
+
+# gup
+eval "$(gup completion zsh)"
