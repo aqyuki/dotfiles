@@ -9,9 +9,6 @@ export GPG_TTY=$(tty)
 # Load plugins
 [[ ! -f $XDG_CONFIG_HOME/zsh/plugin.zsh ]] || source $XDG_CONFIG_HOME/zsh/plugin.zsh
 
-# Load hooks
-[[ ! -f $XDG_CONFIG_HOME/zsh/hook.zsh ]] || source $XDG_CONFIG_HOME/zsh/hook.zsh
-
 # zsh config
 autoload -Uz compinit && compinit
 
