@@ -9,7 +9,7 @@ blur = true
 
 [font]
 normal = { family = "HackGen35 Console NF", style = "Regular" }
-size = 10
+size = 9
 
 [cursor]
 style = {shape = "Beam"}
