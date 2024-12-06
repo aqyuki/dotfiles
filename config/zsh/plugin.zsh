@@ -12,4 +12,4 @@ zinit ice depth=1
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light olets/zsh-abbr
 zinit light rupa/z
-unalias zi
+zinit light zsh-users/zsh-autosuggestions
