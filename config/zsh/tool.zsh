@@ -31,4 +31,5 @@ eval "$(gup completion zsh)"
 eval "$(task --completion zsh)"
 
 # fzf
+eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
