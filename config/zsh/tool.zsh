@@ -1,6 +1,9 @@
 autoload -Uz compinit
 compinit
 
+# zsh
+setopt auto_cd
+
 # Go
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$XDG_DATA_HOME/go
@@ -26,3 +29,6 @@ eval "$(gup completion zsh)"
 
 # taskfile
 eval "$(task --completion zsh)"
+
+# fzf
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
