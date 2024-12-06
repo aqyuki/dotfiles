@@ -24,3 +24,12 @@ fzf-z-search() {
 }
 zle -N fzf-z-search
 bindkey '^z' fzf-z-search
+
+# コマンド履歴をfzfで検索する
+function fzf-history() {
+  BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse --preview '')
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
+zle -N fzf-history
+bindkey '^l' fzf-history
