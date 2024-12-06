@@ -1,8 +1,5 @@
 export GPG_TTY=$(tty)
 
-# Load Alias
-[[ ! -f $XDG_CONFIG_HOME/zsh/alias.zsh ]] || source $XDG_CONFIG_HOME/zsh/alias.zsh
-
 # Load Tool configuration
 [[ ! -f $XDG_CONFIG_HOME/zsh/tool.zsh  ]] || source $XDG_CONFIG_HOME/zsh/tool.zsh
 
@@ -11,6 +8,9 @@ export GPG_TTY=$(tty)
 
 # Load custom functions
 [[ ! -f $XDG_CONFIG_HOME/zsh/function.zsh ]] || source $XDG_CONFIG_HOME/zsh/function.zsh
+
+# Load custom abbreviations
+[[ ! -f $XDG_CONFIG_HOME/zsh/abbr.zsh ]] || source $XDG_CONFIG_HOME/zsh/abbr.zsh
 
 # zsh config
 autoload -Uz compinit && compinit
