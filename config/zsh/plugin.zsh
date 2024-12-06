@@ -11,4 +11,5 @@ source "$XDG_DATA_HOME/zinit/zinit.git/zinit.zsh"
 zinit ice depth=1
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light olets/zsh-abbr
+zinit light rupa/z
 unalias zi
