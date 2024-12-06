@@ -23,4 +23,4 @@ fzf-z-search() {
     fi
 }
 zle -N fzf-z-search
-bindkey '^f' fzf-z-search
+bindkey '^z' fzf-z-search
