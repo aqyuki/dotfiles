@@ -139,7 +139,7 @@ keybinds clear-defaults=true {
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt n" { NewPane; }
-        bind "Alt x" { CloseFocus; SwitchToMode "normal"; }
+        bind "Alt w" { CloseFocus; SwitchToMode "normal"; }
         bind "Alt o" { MoveTab "right"; }
         bind "Ctrl q" { Quit; }
     }
@@ -181,7 +181,7 @@ keybinds clear-defaults=true {
         bind "esc" { SwitchToMode "normal"; }
     }
     shared_among "pane" "tmux" {
-        bind "x" { CloseFocus; SwitchToMode "normal"; }
+        bind "w" { CloseFocus; SwitchToMode "normal"; }
     }
     shared_among "scroll" "search" {
         bind "PageDown" { PageScrollDown; }
