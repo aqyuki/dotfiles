@@ -38,3 +38,8 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}
 
 # podman
 eval $(podman completion zsh)
+
+# bun
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+export PATH="$PATH:$BUN_INSTALL/bin"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
