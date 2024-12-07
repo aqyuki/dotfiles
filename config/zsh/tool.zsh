@@ -13,6 +13,8 @@ export PATH=$PATH:$GOBIN
 # Rust
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+eval "$(rustup completions zsh)"
+fpath=($fpath $RUSTUP_HOME/toolchains/stable-x86_64-unknown-linux-gnu/share/zsh/site-functions)
 
 # mise
 eval "$(mise activate zsh)"
