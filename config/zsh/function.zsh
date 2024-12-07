@@ -33,3 +33,11 @@ function fzf-history() {
 }
 zle -N fzf-history
 bindkey '^l' fzf-history
+
+# ssh先をfzfで選択して接続する
+function fsf(){
+  local host=$(grep -E "^Host " ~/.ssh/config | sed -e 's/Host[ ]*//g' | fzf)
+  if [ -n "$host" ]; then
+    ssh $host
+  fi
+}
