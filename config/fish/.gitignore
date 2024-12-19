@@ -1,6 +1,7 @@
 # fish gitignore
-fish_variables
 *.fish
+themes/
+fish_variables
 !conf.d/000-env.fish
 !conf.d/001-abbr.fish
 !conf.d/002-tool.fish
