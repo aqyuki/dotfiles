@@ -1,3 +1,13 @@
+# Go
+set -x GOPATH $XDG_DATA_HOME/go
+set -x GOBIN $GOPATH/bin
+fish_add_path /usr/local/go/bin
+fish_add_path $GOPATH/bin
+
+# Rust
+set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -x CARGO_HOME $XDG_DATA_HOME/cargo
+
 # ghq settings
 set -x GHQ_ROOT $HOME/.projects
 
