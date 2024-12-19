@@ -13,3 +13,6 @@ size = 9
 
 [cursor]
 style = {shape = "Beam"}
+
+[terminal]
+shell = "fish"
