@@ -1,0 +1,8 @@
+# fish gitignore
+fish_variables
+*.fish
+!conf.d/000-env.fish
+!conf.d/001-abbr.fish
+!conf.d/002-tool.fish
+!conf.d/003-keybind.fish
+!config.fish
