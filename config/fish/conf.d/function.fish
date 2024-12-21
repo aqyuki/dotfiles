@@ -1,6 +1,6 @@
 # 選択したローカルリポジトリに移動する
 function __fzf_repository_search --description "find local repository with fzf"
-    set -l select (ghq list | fzf --preview 'bat --color=always (ghq root)/{}/README.*')
+    set -l select (ghq list | fzf --preview 'bat --color=always $(ghq root)/{}/README.*')
     [ -n "$select" ]; and cd (ghq root)/$select
     commandline -f repaint
 end
