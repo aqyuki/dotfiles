@@ -1,0 +1,5 @@
+gqh
+fzf
+bat
+ripgrep
+fd
