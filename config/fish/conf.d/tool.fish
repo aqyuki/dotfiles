@@ -12,11 +12,15 @@ set -x CARGO_HOME $XDG_DATA_HOME/cargo
 set -x GHQ_ROOT $HOME/.projects
 
 # fzf settings
-set -x FZF_DEFAULT_OPTS '--height 40% --reverse --border'
+set -x FZF_DEFAULT_OPTS '--height 50% --reverse --border=rounded'
 
 # mise settings
 mise activate fish | source
 mise completion fish | source
+
+# zoxide settings
+zoxide init fish | source
+set -x _ZO_FZF_OPTS '--height 50% --reverse --border=rounded'
 
 # load starship prompt
 set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
