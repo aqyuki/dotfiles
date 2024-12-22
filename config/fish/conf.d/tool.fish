@@ -25,6 +25,9 @@ set -x _ZO_FZF_OPTS '--height 50% --reverse --border=rounded'
 # tailscale settings
 tailscale completion fish | source
 
+# GitHub CLI
+gh completion -s fish | source
+
 # load starship prompt
 set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 starship init fish | source
