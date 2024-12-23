@@ -22,9 +22,6 @@ mise completion fish | source
 zoxide init fish | source
 set -x _ZO_FZF_OPTS '--height 50% --reverse --border=rounded'
 
-# tailscale settings
-tailscale completion fish | source
-
 # GitHub CLI
 gh completion -s fish | source
 
