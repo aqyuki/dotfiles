@@ -14,6 +14,13 @@ set -x GHQ_ROOT $HOME/.projects
 # fzf settings
 set -x FZF_DEFAULT_OPTS '--height 50% --reverse --border=rounded'
 
+# fnm
+set -x FNM_PATH "$XDG_DATA_HOME/fnm"
+fish_add_path "$FNM_PATH"
+
+fnm env --use-on-cd --shell fish | source
+fnm completions --shell fish | source
+
 # zoxide settings
 zoxide init fish | source
 set -x _ZO_FZF_OPTS '--height 50% --reverse --border=rounded'
