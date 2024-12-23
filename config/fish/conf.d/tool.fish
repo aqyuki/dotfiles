@@ -14,10 +14,6 @@ set -x GHQ_ROOT $HOME/.projects
 # fzf settings
 set -x FZF_DEFAULT_OPTS '--height 50% --reverse --border=rounded'
 
-# mise settings
-mise activate fish | source
-mise completion fish | source
-
 # zoxide settings
 zoxide init fish | source
 set -x _ZO_FZF_OPTS '--height 50% --reverse --border=rounded'
