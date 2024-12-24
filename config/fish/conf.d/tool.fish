@@ -28,6 +28,9 @@ set -x _ZO_FZF_OPTS '--height 50% --reverse --border=rounded'
 # GitHub CLI
 gh completion -s fish | source
 
+# direnv
+direnv hook fish | source
+
 # load starship prompt
 set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 starship init fish | source
