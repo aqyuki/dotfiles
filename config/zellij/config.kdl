@@ -5,13 +5,17 @@ default_shell "fish"
 keybinds {
     normal {
         bind "Alt w" { CloseFocus; }
+        bind "Alt \\" { NewPane "Right"; }
+        bind "Alt -" { NewPane "Down"; }
     }
 
     pane {
-        bind "w" { CloseFocus; }
+        bind "Ctrl w" { CloseFocus; }
+        bind "Ctrl \\" { NewPane "Right"; }
+        bind "Ctrl -" { NewPane "Down"; }
     }
 
     tab {
-        bind "w" { CloseTab; }
+        bind "Ctrl w" { CloseTab; }
     }
 }
