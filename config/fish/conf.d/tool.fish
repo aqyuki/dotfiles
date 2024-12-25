@@ -31,6 +31,11 @@ gh completion -s fish | source
 # direnv
 direnv hook fish | source
 
+# pnpm
+set -x PNPM_HOME $XDG_DATA_HOME/pnpm
+fish_add_path $PNPM_HOME
+pnpm setup
+
 # load starship prompt
 set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 starship init fish | source
