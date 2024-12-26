@@ -13,11 +13,3 @@ function __fzf_change_working_directory
     commandline -f repaint
 end
 bind \ec __fzf_change_working_directory
-
-# wkm
-function __fzf_wkm_search
-    set -l select (wkm list | fzf --preview 'bat --color=always $(ghq root)/{}/README.*')
-    [ -n "$select" ]; and cd (wkm root)/$select
-    commandline -f repaint
-end
-bind \cw __fzf_wkm_search

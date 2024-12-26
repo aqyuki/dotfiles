@@ -36,12 +36,6 @@ set -x PNPM_HOME $XDG_DATA_HOME/pnpm
 fish_add_path $PNPM_HOME
 pnpm setup
 
-# wkm
-set -x WKM_ROOT $XDG_DATA_HOME/wkm
-if type wkm >/dev/null
-    wkm completion fish | source
-end
-
 # load starship prompt
 set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 starship init fish | source
