@@ -22,3 +22,10 @@ gui:
 
   authorColors:
     '*': '#b7bdf8'
+
+customCommands:
+  - key: 'E'
+    context: 'files'
+    command: 'gitmoji commit'
+    description: 'Commit with gitmoji'
+    subprocess: true
