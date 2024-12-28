@@ -35,3 +35,7 @@ palette = 15=#bac2de
 font-size = 10
 font-family = HackGen35 Console NF
 gtk-titlebar = false
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-theme = ghostty
