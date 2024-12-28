@@ -39,3 +39,5 @@ window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
 window-theme = ghostty
+window-height = 40
+window-width = 120
