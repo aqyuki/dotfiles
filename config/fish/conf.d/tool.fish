@@ -34,7 +34,7 @@ direnv hook fish | source
 # pnpm
 set -x PNPM_HOME $XDG_DATA_HOME/pnpm
 fish_add_path $PNPM_HOME
-pnpm setup
+pnpm setup >>/dev/null
 
 # load starship prompt
 set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
