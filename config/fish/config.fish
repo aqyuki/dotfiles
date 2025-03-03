@@ -42,7 +42,7 @@ set --export FZF_DEFAULT_OPTS '--height 50% --reverse --border=rounded'
 
 # Custom shortcuts
 bind \cr __fzf_repository_search
-bind \ec __fzf_change_working_directory
+bind \cf __fzf_change_working_directory
 
 # Abbreviations
 abbr --add lg 'lazygit'
