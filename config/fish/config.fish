@@ -2,6 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Common environment variable
+set --export EDITOR nvim
+
 # XDG Base Directory
 set --export XDG_CONFIG_HOME $HOME/.config
 set --export XDG_DATA_HOME $HOME/.local/share
