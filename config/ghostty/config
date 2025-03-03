@@ -1,4 +1,5 @@
 command = /usr/bin/fish
+shell-integration = fish
 theme = catppuccin-frappe
 
 clipboard-read = allow
