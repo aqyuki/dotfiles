@@ -12,6 +12,6 @@
 
 **DE** : [**Cinnamon**](https://wiki.archlinux.jp/index.php/Cinnamon) \
 **Shell** : [**fish**](https://fishshell.com/) \
-**Ghostty** : [**ghostty**](https://ghostty.org/) \
+**Terminal** : [**ghostty**](https://ghostty.org/) \
 **Prompt** : [**starship**](https://starship.rs/)
 
