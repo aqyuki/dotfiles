@@ -10,7 +10,8 @@
 
 ## 💻️ Environment
 
-**DE** : [**Budgie**](https://buddiesofbudgie.org/) \
+**DE** : [**Cinnamon**](https://wiki.archlinux.jp/index.php/Cinnamon) \
 **Shell** : [**fish**](https://fishshell.com/) \
 **Ghostty** : [**ghostty**](https://ghostty.org/) \
 **Prompt** : [**starship**](https://starship.rs/)
+
