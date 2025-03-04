@@ -52,7 +52,7 @@ bind \cr __fzf_repository_search
 bind \cf __fzf_change_working_directory
 
 # Abbreviations
-abbr --add lg 'lazygit'
+abbr --add lg lazygit
 abbr --add proot 'cd (git rev-parse --show-toplevel)'
 
 # Prompt
