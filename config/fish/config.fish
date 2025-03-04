@@ -2,8 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     if not systemctl --user is-active --quiet tmux.service
         systemctl --user start tmux.service
-        exec tmux attach-session -d -t "$USER" >/dev/null 2>&1
     end
+    tmux attach-session -d -t "$USER" >/dev/null 2>&1
 end
 
 # Common environment variable
@@ -59,3 +59,4 @@ abbr --add proot 'cd (git rev-parse --show-toplevel)'
 # 通常と異なるディレクトリにStarshipの設定ファイルが存在するため、環境変数で設定ファイルを明示的に指定
 set --export STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/starship.toml
 starship init fish | source
+
