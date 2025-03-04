@@ -1,6 +1,6 @@
 command = /usr/bin/fish
 shell-integration = fish
-theme = catppuccin-frappe
+theme = Japanesque
 
 clipboard-read = allow
 clipboard-write = allow
@@ -14,8 +14,8 @@ font-family = HackGen35 Console NF
 
 ### Window config
 gtk-titlebar = true
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 1
+window-padding-y = 1
 window-padding-balance = true
 window-theme = ghostty
 window-height = 40
@@ -30,3 +30,4 @@ keybind = alt+down=goto_split:down
 keybind = alt+\=new_split:right
 keybind = alt+-=new_split:down
 keybind = alt+w=close_surface
+
