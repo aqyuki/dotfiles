@@ -1,7 +1,11 @@
+-- load keymap
+require("config.keymap")
 
--- key binding
-vim.keymap.set("i","jj","<esc>")
+-- load plugin
+require("config.plugin")
 
--- cursor
-vim.opt.guicursor = "n-i:ver25"
+-- load option
+require("config.option")
 
+-- start language server
+require("config.lsp")
