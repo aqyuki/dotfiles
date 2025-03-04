@@ -1,5 +1,9 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    if not systemctl --user is-active --quiet tmux.service
+        systemctl --user start tmux.service
+        exec tmux attach-session -d -t "$USER" >/dev/null 2>&1
+    end
 end
 
 # Common environment variable
