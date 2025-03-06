@@ -8,4 +8,3 @@ return {
 		mason_lspconfig.setup()
 	end,
 }
-

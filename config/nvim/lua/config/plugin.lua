@@ -20,7 +20,15 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 		{ import = "plugins.lsp" },
-		{ "nvim-tree/nvim-web-devicons", opts = {} },
 	},
 })
 
+-- LSP settings
+require("mason-lspconfig").setup_handlers({
+	function(server_name)
+		require("lspconfig")[server_name].setup({
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		})
+	end,
+})
+vim.diagnostic.config()

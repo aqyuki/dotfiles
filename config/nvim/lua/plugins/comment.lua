@@ -1,6 +1,5 @@
 return {
-  'numToStr/Comment.nvim',
-  lazy = true,
-  event = 'InsertEnter',
+	"numToStr/Comment.nvim",
+	lazy = true,
+	event = "InsertEnter",
 }
-
