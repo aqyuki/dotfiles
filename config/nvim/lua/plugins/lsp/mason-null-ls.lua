@@ -8,14 +8,13 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"nvimtools/none-ls.nvim",
+		"nvim-lua/plenary.nvim",
 	},
-	keys = {
-		{ "n", "gf", format },
-	},
-	config = function(mod)
-		mod.setup({
-			automatic_setup = true,
+	config = function()
+		require("mason-null-ls").setup({
 			handlers = {},
 		})
+
+		vim.keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.format({async=true,timeout_ms=3000})<CR>")
 	end,
 }
