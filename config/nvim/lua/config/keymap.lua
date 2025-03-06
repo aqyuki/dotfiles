@@ -9,7 +9,7 @@ keymap.set("i", "kk", "<esc>")
 -- buffer setting
 keymap.set("n", "<C-[>", "<cmd>bprev<CR>")
 keymap.set("n", "<C-]>", "<cmd>bnext<CR>")
-keymap.set("n", "<C-w>", "<cmd>bd<CR>")
+keymap.set("n", "<C-w>", "<cmd>up<CR><cmd>bd<CR>")
 
 -- LSP actions
 keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
