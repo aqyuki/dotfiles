@@ -9,12 +9,12 @@ keymap.set("i", "kk", "<esc>")
 -- buffer setting
 keymap.set("n", "<C-[>", "<cmd>bprev<CR>")
 keymap.set("n", "<C-]>", "<cmd>bnext<CR>")
-keymap.set("n", "<leader>bd", "<cmd>bd<CR>")
+keymap.set("n", "<C-w>", "<cmd>bd<CR>")
 
 -- LSP actions
-keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR)")
+keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
 keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-keymap.set("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>")
+keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
+keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
