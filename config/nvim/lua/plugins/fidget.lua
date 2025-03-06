@@ -3,7 +3,18 @@ return {
 	config = function()
 		local fidget = require("fidget")
 		local notification = require("fidget.notification")
-		fidget.setup({})
+		fidget.setup({
+			notification = {
+				window = {
+					border = "rounded",
+				},
+			},
+			integration = {
+				["nvim-tree"] = {
+					enable = true,
+				},
+			},
+		})
 
 		vim.notify = notification.notify
 	end,
