@@ -18,5 +18,6 @@ return {
 				lsp_format = "fallback",
 			},
 		})
+		vim.keymap.set("n", "gf", "<cmd>lua require('conform').format()<CR>")
 	end,
 }
