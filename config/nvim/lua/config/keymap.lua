@@ -14,7 +14,7 @@ keymap.set("n", "<C-w>", "<cmd>up<CR><cmd>bd<CR>")
 -- LSP actions
 keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
-keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+-- keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>") -- replaced by mason-null-ls
 keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>")
 keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
 keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
