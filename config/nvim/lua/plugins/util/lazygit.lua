@@ -7,5 +7,6 @@ return {
 	},
 	config = function()
 		local lazygit = require("lazygit")
+		lazygit.setup({})
 	end,
 }
