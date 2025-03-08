@@ -6,3 +6,8 @@ config/systemd/user/default.target.wants
 # tmux plugins
 config/tmux/plugins
 
+# alacritty thmes
+config/alacritty/themes
+
+# fish themes
+config/fish/themes
