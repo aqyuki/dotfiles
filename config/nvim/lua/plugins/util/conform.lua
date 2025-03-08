@@ -12,6 +12,7 @@ return {
 				typescript = { "prettier" },
 				yaml = { "prettier" },
 				json = { "prettier" },
+				toml = { "taplo" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
