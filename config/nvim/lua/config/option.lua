@@ -9,7 +9,7 @@ opt.cursorline = true
 opt.splitright = true
 
 -- cursor
-vim.opt.guicursor = "n-i:ver25"
+vim.opt.guicursor = "n-i:block"
 
 -- tab width
 opt.tabstop = 2
