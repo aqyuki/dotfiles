@@ -9,6 +9,9 @@ return {
 	config = function()
 		local lspsaga = require("lspsaga")
 		lspsaga.setup({
+			symbol_in_winbar = {
+				enable = false,
+			},
 			code_action_lightbulb = {
 				enable = false,
 			},
