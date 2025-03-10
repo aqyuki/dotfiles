@@ -27,11 +27,39 @@ require("lazy").setup({
 })
 
 -- LSP settings
+
+-- Rust analyzer setup
+local function rust_setup(config)
+	config.settings = {
+		inlayHints = {
+			typeHints = { enable = true },
+			parameterHints = { enable = true },
+		},
+	}
+	require("lspconfig").rust_analyzer.setup(config)
+end
+
+-- custom server settings
+local server_settings = {
+	rust_analyzer = rust_setup,
+}
+
+-- default server setup
+local function setup_default(server_name, config)
+	require("lspconfig")[server_name].setup(config)
+end
+
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		require("lspconfig")[server_name].setup({
+		local default_setting = {
 			capabilities = require("cmp_nvim_lsp").default_capabilities(),
-		})
+		}
+
+		if server_settings[server_name] then
+			server_settings[server_name](default_setting)
+		else
+			setup_default(server_name, default_setting)
+		end
 	end,
 })
 vim.diagnostic.config()

@@ -21,3 +21,4 @@ vim.cmd.colorscheme("onedark")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
+vim.lsp.inlay_hint.enable(true)
