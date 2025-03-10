@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	lazy = true,
 	keys = {
-		{ mode = "n", "lg", "<cmd>LazyGit<CR>" },
+		{ mode = "n", "<leader>lg", "<cmd>LazyGit<CR>" },
 	},
 	config = function()
 		local lazygit = require("lazygit")
