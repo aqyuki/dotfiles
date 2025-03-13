@@ -1,0 +1,22 @@
+command = /usr/bin/fish
+shell-integration = fish
+theme = catppuccin-mocha
+
+clipboard-read = allow
+clipboard-write = allow
+confirm-close-surface = false
+background-opacity = 0.85
+unfocused-split-opacity = 0.85
+cursor-opacity = 0.5
+cursor-style = bar
+font-size = 10
+font-family = HackGen35 Console NF
+
+### Window config
+gtk-titlebar = true
+window-padding-x = 1
+window-padding-y = 1
+window-padding-balance = true
+window-theme = ghostty
+window-height = 40
+window-width = 120
