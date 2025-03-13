@@ -1,14 +1,4 @@
 if status is-interactive
-    if type -q tmux; and test -n "$DISPLAY"; and test -z "$TMUX"
-        set -l SESSION_NAME "tmux"
-
-        if test (tmux list-sessions 2>/dev/null | wc -l) -eq 0
-            tmux new-session -s "$SESSION_NAME"
-        else
-            tmux attach-session -t "$SESSION_NAME" 2>/dev/null
-            or tmux new-session -s "$SESSION_NAME"
-        end
-    end
 
 end
 
