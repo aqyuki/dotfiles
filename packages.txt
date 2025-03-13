@@ -18,4 +18,4 @@ neovim
 ripgrep
 starship
 stow
-tmux
+zellij
