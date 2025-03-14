@@ -25,6 +25,33 @@ warn() { echo -e "${YELLOW}[WARN]${RESET} $1"; }
 
 error() { echo -e "${RED}[ERROR]${RESET} $1"; }
 
+# create_symlink creates a symbolic link
+create_symlink() {
+  local src=$1
+  local dest=$2
+
+  # 既存のリンクやディレクトリがある場合はスキップ
+  if [ -e "$dest" ] || [ -L "$dest" ]; then
+    warn "Skip: $dest already exists."
+    return
+  fi
+
+  # シンボリックリンクを作成
+  ln -s "$src" "$dest"
+  log "${BLUE}Linked${RESET} : $src -> $dest"
+}
+
+# remove_symlink removes a symbolic link
+remove_symlink() {
+  local link=$1
+
+  # リンクが存在する場合は削除
+  if [ -L "$link" ]; then
+    rm "$link"
+    log "${BLUE}Removed${RESET} : $link"
+  fi
+}
+
 # show_meta shows the meta information
 show_meta() {
   local author="aqyuki"
@@ -51,33 +78,6 @@ doctor() {
       exit 1
     fi
   done
-}
-
-# create_symlink creates a symbolic link
-create_symlink() {
-  local src=$1
-  local dest=$2
-
-  # 既存のリンクやディレクトリがある場合はスキップ
-  if [ -e "$dest" ] || [ -L "$dest" ]; then
-    warn "Skip: $dest already exists."
-    return
-  fi
-
-  # シンボリックリンクを作成
-  ln -s "$src" "$dest"
-  log "${BLUE}Linked${RESET} : $src -> $dest"
-}
-
-# remove_symlink removes a symbolic link
-remove_symlink() {
-  local link=$1
-
-  # リンクが存在する場合は削除
-  if [ -L "$link" ]; then
-    rm "$link"
-    log "${BLUE}Removed${RESET} : $link"
-  fi
 }
 
 # install_configurations installs dotfiles
@@ -183,6 +183,5 @@ main() {
   cleanup
   info "Cleanup is successfully done."
 }
-
 main
 
