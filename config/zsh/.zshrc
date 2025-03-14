@@ -8,7 +8,6 @@ autoload -Uz compinit && compinit
 eval "$(rustup completions zsh)"
 
 # mise settings
-#
 # Ref : https://mise.jdx.dev/installing-mise.html#zsh
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
