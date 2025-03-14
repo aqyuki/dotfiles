@@ -27,7 +27,6 @@ set --export RUSTUP_HOME $XDG_DATA_HOME/rustup
 set --export CARGO_HOME $XDG_DATA_HOME/cargo
 source $XDG_DATA_HOME/cargo/env.fish
 rustup completions fish | source
-source $CARGO_HOME/env.fish
 
 # mise
 mise activate fish | source
