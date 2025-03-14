@@ -51,6 +51,9 @@ abbr --add proot 'cd (git rev-parse --show-toplevel)'
 set --export STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/starship.toml
 starship init fish | source
 
+# Interactive mode
+#
+# Interactive shellでのみ実行される
 if status is-interactive
   if type -q tmux; and test -n "$DISPLAY"; and test -z "$TMUX"
         set -l SESSION_NAME "tmux"
