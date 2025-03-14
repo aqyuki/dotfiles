@@ -12,16 +12,16 @@ keybinds {
         bind "Alt -"  { NewPane "Down"; }
 
         // change panel
-        bind "Alt h" { MoveFocus "Left"; }
-        bind "Alt j" { MoveFocus "Down"; }
-        bind "Alt k" { MoveFocus "Up"; }
-        bind "Alt l" { MoveFocus "Right"; }
+        bind "Ctrl h" { MoveFocus "Left"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
+        bind "Ctrl l" { MoveFocus "Right"; }
 
         // resize pane
-        bind "Alt Shift h" { Resize "Left"; }
-        bind "Alt Shift j" { Resize "Down"; }
-        bind "Alt Shift k" { Resize "Up"; }
-        bind "Alt Shift l" { Resize "Right"; }
+        bind "Ctrl Shift h" { Resize "Left"; }
+        bind "Ctrl Shift j" { Resize "Down"; }
+        bind "Ctrl Shift k" { Resize "Up"; }
+        bind "Ctrl Shift l" { Resize "Right"; }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
