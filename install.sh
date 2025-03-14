@@ -155,15 +155,7 @@ cleanup() {
   fi
 }
 
-usage() {
-  log "Usage: $0 [ usage | install | uninstall | sync ]"
-  log "  usage      : show this message"
-  log "  install    : install dotfiles"
-  log "  uninstall  : uninstall dotfiles"
-  log "  sync       : install dependencies"
-}
-
-install() {
+main() {
   # check dependencies
   info "checking installer dependencies..."
   doctor
@@ -192,56 +184,5 @@ install() {
   info "Cleanup is successfully done."
 }
 
-uninstall() {
-  # uninstall dotfiles
-  info "Start to uninstall dotfiles..."
-  for dir in "$SCRIPT_DIR/config"/*/; do
-    local dir_name=$(basename "$dir")
-    local link_path="$XDG_CONFIG_HOME/$dir_name"
+main
 
-    # remove symlink
-    remove_symlink "$link_path"
-  done
-  info "Dotfiles are successfully uninstalled."
-
-  # cleanup
-  info "Start to cleanup..."
-  cleanup
-  info "Cleanup is successfully done."
-}
-
-list-dependency() {
-  log "$(wc -w <packages.txt) packages are counted by dependencies in packages.txt"
-  for package in $(cat "$SCRIPT_DIR/packages.txt"); do
-    if yay -Qi $package >/dev/null 2>&1; then
-      log "${BLUE}Installed${RESET} : $package"
-    else
-      log "${RED}Not installed${RESET} : $package"
-    fi
-  done
-  info "Dependency check complete."
-}
-
-# entrypoint
-show_meta
-case "$1" in
-usage)
-  usage
-  ;;
-install)
-  install "$@"
-  ;;
-uninstall)
-  uninstall "$@"
-  ;;
-sync)
-  install_dependency
-  ;;
-packages)
-  list-dependency
-  ;;
-*)
-  error "Invalid command: $1"
-  exit 1
-  ;;
-esac
