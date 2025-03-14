@@ -56,7 +56,7 @@ starship init fish | source
 # Interactive shellでのみ実行される
 if status is-interactive
   if type -q tmux; and test -n "$DISPLAY"; and test -z "$TMUX"
-        set -l SESSION_NAME "tmux"
+        set -l SESSION_NAME "develop"
 
         if test (tmux list-sessions 2>/dev/null | wc -l) -eq 0
             tmux new-session -s "$SESSION_NAME"
