@@ -1,5 +1,5 @@
-command = /usr/bin/fish
-shell-integration = fish
+command = /usr/bin/zsh
+shell-integration = zsh
 theme = catppuccin-mocha
 
 clipboard-read = allow
