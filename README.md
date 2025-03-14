@@ -22,23 +22,14 @@
 ```bash
 git clone https://github.com/aqyuki/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-./install.sh install
+./install.sh
 ```
 
 ### ✨️ **Apply changes**
 
 ```bash
 git pull
-./install.sh install
-
-# if you want to only sync the packages
-# ./install.sh sync
-```
-
-### 🔥 **Uninstall**
-
-```bash
-./install.sh uninstall
+./install.sh
 ```
 
 ## 📜 **License**
