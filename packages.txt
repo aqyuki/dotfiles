@@ -19,5 +19,6 @@ ripgrep
 sheldon
 starship
 stow
+tmux
 zellij
 zsh
