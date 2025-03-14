@@ -31,3 +31,6 @@ abbr -S -q lg="lazygit"
 # starship settings
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 eval "$(starship init zsh)"
+
+# launch zellij
+eval "$(zellij setup --generate-auto-start zsh)"
