@@ -1,16 +1,3 @@
-if status is-interactive
-  if type -q tmux; and test -n "$DISPLAY"; and test -z "$TMUX"
-        set -l SESSION_NAME "tmux"
-
-        if test (tmux list-sessions 2>/dev/null | wc -l) -eq 0
-            tmux new-session -s "$SESSION_NAME"
-        else
-            tmux attach-session -t "$SESSION_NAME" 2>/dev/null
-            or tmux new-session -s "$SESSION_NAME"
-        end
-    end
-end
-
 # Common environment variable
 set --export EDITOR nvim
 
@@ -63,3 +50,16 @@ abbr --add proot 'cd (git rev-parse --show-toplevel)'
 # 通常と異なるディレクトリにStarshipの設定ファイルが存在するため、環境変数で設定ファイルを明示的に指定
 set --export STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/starship.toml
 starship init fish | source
+
+if status is-interactive
+  if type -q tmux; and test -n "$DISPLAY"; and test -z "$TMUX"
+        set -l SESSION_NAME "tmux"
+
+        if test (tmux list-sessions 2>/dev/null | wc -l) -eq 0
+            tmux new-session -s "$SESSION_NAME"
+        else
+            tmux attach-session -t "$SESSION_NAME" 2>/dev/null
+            or tmux new-session -s "$SESSION_NAME"
+        end
+    end
+end
