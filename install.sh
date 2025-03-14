@@ -2,10 +2,13 @@
 
 set -eu
 
+# XDG base directory specification
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+
 # variables
-script_dir=$(cd $(dirname $0) && pwd)
-config_dir=$HOME/.config
-package_list="$(sort "$script_dir/packages.txt" | xargs)"
+SCRIPT_DIR=$(cd $(dirname $0) && pwd)
+PACKAGE_LIST="$(sort "$SCRIPT_DIR/packages.txt" | xargs)"
 
 # color codes
 YELLOW="\033[1;33m"
@@ -21,34 +24,6 @@ info() { echo -e "${BLUE}[INFO]${RESET} $1"; }
 warn() { echo -e "${YELLOW}[WARN]${RESET} $1"; }
 
 error() { echo -e "${RED}[ERROR]${RESET} $1"; }
-
-# show_meta shows the meta information
-show_meta() {
-  local author="aqyuki"
-  local repository="https://github.com/aqyuki/dotfiles"
-
-  log "============================================="
-  log "dotfiles installer feat. $author"
-  log "Author: $author"
-  log "Repository: $repository"
-  log "============================================="
-  log "script_dir: $script_dir"
-  log "config_dir: $config_dir"
-  log "$(wc -w <<<"$package_list") packages will be installed."
-  log "============================================="
-}
-
-# doctor checks the installer dependencies
-doctor() {
-  # check the installer dependencies
-  local dependencies=(yay git)
-  for dep in "${dependencies[@]}"; do
-    if ! command -v "$dep" &>/dev/null; then
-      error "$dep is not installed. Please install it."
-      exit 1
-    fi
-  done
-}
 
 # create_symlink creates a symbolic link
 create_symlink() {
@@ -77,24 +52,52 @@ remove_symlink() {
   fi
 }
 
+# show_meta shows the meta information
+show_meta() {
+  local author="aqyuki"
+  local repository="https://github.com/aqyuki/dotfiles"
+
+  log "============================================="
+  log "dotfiles installer feat. $author"
+  log "Author: $author"
+  log "Repository: $repository"
+  log "============================================="
+  log "SCRIPT_DIR: $SCRIPT_DIR"
+  log "XDG_CONFIG_DIR: $XDG_CONFIG_HOME"
+  log "$(wc -w <<<"$PACKAGE_LIST") packages will be installed."
+  log "============================================="
+}
+
+# doctor checks the installer dependencies
+doctor() {
+  # check the installer dependencies
+  local dependencies=(yay git)
+  for dep in "${dependencies[@]}"; do
+    if ! command -v "$dep" &>/dev/null; then
+      error "$dep is not installed. Please install it."
+      exit 1
+    fi
+  done
+}
+
 # install_configurations installs dotfiles
 install_configurations() {
   # if ~/.config does not exist, create it
-  if [ ! -d "$config_dir" ]; then
-    info "$config_dir does not exist. Create it."
-    mkdir -p "$config_dir"
-    info "created $config_dir"
+  if [ ! -d "$XDG_CONFIG_HOME" ]; then
+    info "$XDG_CONFIG_HOME does not exist. Create it."
+    mkdir -p "$XDG_CONFIG_HOME"
+    info "created $XDG_CONFIG_HOME"
   fi
 
   # dotfiles installer
-  for dir in "$script_dir/config"/*/; do
+  for dir in $(ls --almost-all "$SCRIPT_DIR/config"); do
     local dir_name=$(basename "$dir")
-    local link_path="$config_dir/$dir_name"
+    local link_path="$XDG_CONFIG_HOME/$dir_name"
     create_symlink "$dir" "$link_path"
   done
 
-  for file_name in "$(ls -A "$script_dir/home")"; do
-    local file_path="$script_dir/home/$file_name"
+  for file_name in $(ls --almost-all "$SCRIPT_DIR/home"); do
+    local file_path="$SCRIPT_DIR/home/$file_name"
     local link_path="$HOME/$file_name"
     create_symlink "$file_path" "$link_path"
   done
@@ -104,7 +107,8 @@ install_configurations() {
 install_dependency() {
   local missing_packages=()
 
-  for package in $(cat "$script_dir/packages.txt"); do
+  # PACKAGE_LISTを配列として認識させるには""で囲ってはいけない
+  for package in $PACKAGE_LIST; do
     if ! yay -Qi $package >/dev/null 2>&1; then
       missing_packages+=("$package")
     else
@@ -118,15 +122,9 @@ install_dependency() {
   fi
 }
 
-# install tmux theme
-#
-# TPM(tmux plugin manager)を使用せずに手動でThemeをインストール
-# Install directory : $HOME/.local/share/tmux/plugins/catppuccin
 install_tmux_plugins(){
-  # local tmux_plugin_dir="$XDG_DATA_HOME/tmux/plugins"
-  local tmux_plugin_dir="$HOME/.local/share/tmux/plugins"
+  local tmux_plugin_dir="$XDG_DATA_HOME/tmux/plugins"
 
-  # ディレクトリが存在しない場合には作成
   if [ ! -d "$tmux_plugin_dir" ]; then
     info "$tmux_plugin_dir does not exist. Create it."
     mkdir -p "$tmux_plugin_dir"
@@ -139,6 +137,8 @@ install_tmux_plugins(){
     info "Installing catppuccin/tmux"
     git clone https://github.com/catppuccin/tmux.git "$tmux_plugin_dir/catppuccin"
     info "Installed catppuccin/tmux"
+  else
+    warn "Skip : catppuccin/tmux is already installed."
   fi
 }
 
@@ -155,15 +155,7 @@ cleanup() {
   fi
 }
 
-usage() {
-  log "Usage: $0 [ usage | install | uninstall | sync ]"
-  log "  usage      : show this message"
-  log "  install    : install dotfiles"
-  log "  uninstall  : uninstall dotfiles"
-  log "  sync       : install dependencies"
-}
-
-install() {
+main() {
   # check dependencies
   info "checking installer dependencies..."
   doctor
@@ -191,57 +183,5 @@ install() {
   cleanup
   info "Cleanup is successfully done."
 }
+main
 
-uninstall() {
-  # uninstall dotfiles
-  info "Start to uninstall dotfiles..."
-  for dir in "$script_dir/config"/*/; do
-    local dir_name=$(basename "$dir")
-    local link_path="$config_dir/$dir_name"
-
-    # remove symlink
-    remove_symlink "$link_path"
-  done
-  info "Dotfiles are successfully uninstalled."
-
-  # cleanup
-  info "Start to cleanup..."
-  cleanup
-  info "Cleanup is successfully done."
-}
-
-list-dependency() {
-  log "$(wc -w <packages.txt) packages are counted by dependencies in packages.txt"
-  for package in $(cat "$script_dir/packages.txt"); do
-    if yay -Qi $package >/dev/null 2>&1; then
-      log "${BLUE}Installed${RESET} : $package"
-    else
-      log "${RED}Not installed${RESET} : $package"
-    fi
-  done
-  info "Dependency check complete."
-}
-
-# entrypoint
-show_meta
-case "$1" in
-usage)
-  usage
-  ;;
-install)
-  install "$@"
-  ;;
-uninstall)
-  uninstall "$@"
-  ;;
-sync)
-  install_dependency
-  ;;
-packages)
-  list-dependency
-  ;;
-*)
-  error "Invalid command: $1"
-  exit 1
-  ;;
-esac
