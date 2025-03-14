@@ -90,13 +90,13 @@ install_configurations() {
   fi
 
   # dotfiles installer
-  for dir in "$SCRIPT_DIR/config"/*/; do
+  for dir in $(ls --almost-all "$SCRIPT_DIR/config"); do
     local dir_name=$(basename "$dir")
     local link_path="$XDG_CONFIG_HOME/$dir_name"
     create_symlink "$dir" "$link_path"
   done
 
-  for file_name in "$(ls -A "$SCRIPT_DIR/home")"; do
+  for file_name in $(ls --almost-all "$SCRIPT_DIR/home"); do
     local file_path="$SCRIPT_DIR/home/$file_name"
     local link_path="$HOME/$file_name"
     create_symlink "$file_path" "$link_path"
