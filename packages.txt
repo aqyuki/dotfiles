@@ -16,6 +16,7 @@ lsd
 mise
 neovim
 ripgrep
+sheldon
 starship
 stow
 zellij
