@@ -21,11 +21,11 @@ vim.cmd.colorscheme("onedark")
 
 -- LSP settings
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
-	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
+  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
 vim.lsp.inlay_hint.enable(true)
 
 -- auto command
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
-	pattern = "*",
-	command = "checktime",
+  pattern = "*",
+  command = "checktime",
 })
