@@ -19,3 +19,4 @@ ripgrep
 starship
 stow
 zellij
+zsh
