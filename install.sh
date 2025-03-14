@@ -41,17 +41,6 @@ create_symlink() {
   log "${BLUE}Linked${RESET} : $src -> $dest"
 }
 
-# remove_symlink removes a symbolic link
-remove_symlink() {
-  local link=$1
-
-  # リンクが存在する場合は削除
-  if [ -L "$link" ]; then
-    rm "$link"
-    log "${BLUE}Removed${RESET} : $link"
-  fi
-}
-
 # show_meta shows the meta information
 show_meta() {
   local author="aqyuki"
