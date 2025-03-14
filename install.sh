@@ -118,6 +118,30 @@ install_dependency() {
   fi
 }
 
+# install tmux theme
+#
+# TPM(tmux plugin manager)を使用せずに手動でThemeをインストール
+# Install directory : $HOME/.local/share/tmux/plugins/catppuccin
+install_tmux_plugins(){
+  # local tmux_plugin_dir="$XDG_DATA_HOME/tmux/plugins"
+  local tmux_plugin_dir="$HOME/.local/share/tmux/plugins"
+
+  # ディレクトリが存在しない場合には作成
+  if [ ! -d "$tmux_plugin_dir" ]; then
+    info "$tmux_plugin_dir does not exist. Create it."
+    mkdir -p "$tmux_plugin_dir"
+    info "created $tmux_plugin_dir"
+  fi
+
+  # catppuccin theme
+  # Ref : https://github.com/catppuccin/tmux
+  if [ ! -d "$tmux_plugin_dir/catppuccin" ]; then
+    info "Installing catppuccin/tmux"
+    git clone https://github.com/catppuccin/tmux.git "$tmux_plugin_dir/catppuccin"
+    info "Installed catppuccin/tmux"
+  fi
+}
+
 # cleanup removes unused packages
 cleanup() {
   if yay -Qdtq >/dev/null; then
@@ -149,6 +173,13 @@ install() {
   info "Start to install dependencies..."
   install_dependency
   info "Dependencies are successfully installed."
+
+  # install external dependencies
+  #
+  # install tmux plugin
+  info "Start to install tmux plugins..."
+  install_tmux_plugins
+  info "Plugins are successfully installed."
 
   # install dotfiles
   info "Start to install dotfiles..."
