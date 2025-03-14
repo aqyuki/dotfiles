@@ -107,7 +107,8 @@ install_configurations() {
 install_dependency() {
   local missing_packages=()
 
-  for package in "$PACKAGE_LIST"; do
+  // PACKAGE_LISTを配列として認識させるには""で囲ってはいけない
+  for package in $PACKAGE_LIST; do
     if ! yay -Qi $package >/dev/null 2>&1; then
       missing_packages+=("$package")
     else
