@@ -17,7 +17,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 
 -- theme
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("catppuccin-mocha")
 
 -- LSP settings
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
