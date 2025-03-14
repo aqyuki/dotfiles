@@ -90,9 +90,13 @@ install_configurations() {
   for dir in "$script_dir/config"/*/; do
     local dir_name=$(basename "$dir")
     local link_path="$config_dir/$dir_name"
-
-    # create symlink
     create_symlink "$dir" "$link_path"
+  done
+
+  for file_name in "$(ls -A "$script_dir/home")"; do
+    local file_path="$script_dir/home/$file_name"
+    local link_path="$HOME/$file_name"
+    create_symlink "$file_path" "$link_path"
   done
 }
 
