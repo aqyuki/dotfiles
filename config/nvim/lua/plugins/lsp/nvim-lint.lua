@@ -5,7 +5,6 @@ return {
       callback = function()
         local lint = require("lint")
         lint.try_lint()
-        lint.try_lint("cspell")
       end,
     })
 
@@ -13,7 +12,6 @@ return {
       callback = function()
         local lint = require("lint")
         lint.try_lint()
-        lint.try_lint("cspell")
       end,
     })
   end,
