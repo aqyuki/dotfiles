@@ -69,7 +69,7 @@ return {
       type = "group",
       val = {
         button("f", "󰱼  Search", "<cmd>FzfLua files<CR>"),
-        button("e", "  New", ":ene<CR>"),
+        button("n", "  New", ":ene<CR>"),
         -- button("c", "  Config", ":e $XDG_CONFIG_HOME/nvim/init.lua | :cd %:p:h | pwd<CR>"),
         button("q", "  Quit", ":qa<CR>"),
       },
