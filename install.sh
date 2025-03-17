@@ -82,7 +82,7 @@ install_configurations() {
   for dir in $(ls --almost-all "$SCRIPT_DIR/config"); do
     local dir_name=$(basename "$dir")
     local link_path="$XDG_CONFIG_HOME/$dir_name"
-    create_symlink "$dir" "$link_path"
+    create_symlink "$SCRIPT_DIR/config/$dir" "$link_path"
   done
 
   for file_name in $(ls --almost-all "$SCRIPT_DIR/home"); do
@@ -145,6 +145,8 @@ cleanup() {
 }
 
 main() {
+  show_meta
+
   # check dependencies
   info "checking installer dependencies..."
   doctor
