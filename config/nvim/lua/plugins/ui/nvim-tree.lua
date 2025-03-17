@@ -5,6 +5,9 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
+  cmd = {
+    "NvimTreeToggle",
+  },
   keys = {
     { mode = "n", "<C-b>", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeをトグルする" },
     { mode = "n", "<C-m>", "<cmd>NvimTreeFocus<CR>", desc = "NvimTreeにフォーカス" },

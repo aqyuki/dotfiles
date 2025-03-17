@@ -68,9 +68,12 @@ return {
     local buttons = {
       type = "group",
       val = {
-        button("f", "󰱼  Search", "<cmd>FzfLua files<CR>"),
-        button("e", "  New", ":ene<CR>"),
-        button("c", "  Config", ":e $XDG_CONFIG_HOME/nvim/init.lua | :cd %:p:h | pwd<CR>"),
+        button("t", "  NvimTree", "<cmd>NvimTreeToggle<CR>"),
+        button("n", "  New file", "<cmd<ene<CR>"),
+        button("r", "  Recent files", "<cmd>FzfLua oldfiles<CR>"),
+        button("f", "󰱼  Search files", "<cmd>FzfLua files<CR>"),
+        button("g", "󰱼  Find text", "<cmd>FzfLua live_grep<CR>"),
+        button("c", "  Config", "<cmd>e $XDG_CONFIG_HOME/nvim/init.lua | :cd %:p:h | pwd<CR>"),
         button("q", "  Quit", ":qa<CR>"),
       },
       opts = {
