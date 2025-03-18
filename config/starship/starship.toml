@@ -6,11 +6,21 @@
 palette = "catppuccin_macchiato"
 
 # Starship modules
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$rust\
+$golang\
+\n$character
+"""
+
 [character]
 # Note the use of Catppuccin color 'peach'
 success_symbol = "[[󰄛](green) ❯](peach)"
 error_symbol = "[[󰄛](red) ❯](peach)"
-vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
+vimcmd_symbol = "[󰄛 ❮](subtext1)"        # For use with zsh-vi-mode
 
 [git_branch]
 style = "bold mauve"
@@ -18,6 +28,24 @@ style = "bold mauve"
 [directory]
 truncation_length = 4
 style = "bold lavender"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[nodejs]
+symbol = ""
+format = '[ $symbol ($version) ](fg:green)'
+
+[rust]
+symbol = ""
+format = '[ $symbol ($version) ](fg:maroon)'
+
+[golang]
+symbol = ""
+format = '[ $symbol ($version) ](fg:sky)'
 
 # Palette definitions
 [palettes.catppuccin_latte]
