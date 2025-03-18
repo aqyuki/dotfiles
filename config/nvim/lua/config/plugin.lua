@@ -44,6 +44,15 @@ local function rust_setup(config)
   require("lspconfig").rust_analyzer.setup(config)
 end
 
+local function typescript_setup(config)
+  config.filetypes = {
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+  }
+  require("lspconfig").tsserver.setup(config)
+end
+
 -- custom server settings
 local server_settings = {
   rust_analyzer = rust_setup,
