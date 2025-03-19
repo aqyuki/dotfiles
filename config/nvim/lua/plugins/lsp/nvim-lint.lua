@@ -7,12 +7,5 @@ return {
         lint.try_lint()
       end,
     })
-
-    vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-      callback = function()
-        local lint = require("lint")
-        lint.try_lint()
-      end,
-    })
   end,
 }
