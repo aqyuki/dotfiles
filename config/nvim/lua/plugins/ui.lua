@@ -51,9 +51,8 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = true,
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = true,
     cmd = { "NvimTreeToggle" },
     keys = {
       { mode = "n", "<C-b>", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeをトグルする" },
@@ -65,6 +64,7 @@ return {
   },
   {
     "folke/trouble.nvim",
+    lazy = true,
     keys = {
       { mode = "n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>" },
     },
