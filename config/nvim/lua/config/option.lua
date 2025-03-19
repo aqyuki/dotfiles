@@ -22,12 +22,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 vim.lsp.inlay_hint.enable(true)
 
 -- auto command
-vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
+local autocmd = vim.api.nvim_create_autocmd
+autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
   pattern = "*",
   command = "checktime",
 })
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.wgsl",
   callback = function()
     vim.bo.filetype = "wgsl"
