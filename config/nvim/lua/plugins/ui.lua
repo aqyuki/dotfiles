@@ -4,10 +4,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = true,
     event = "BufAdd",
-    config = function()
-      vim.opt.termguicolors = true
-      require("bufferline").setup({})
-    end,
+    opts = {},
   },
   {
     "j-hui/fidget.nvim",
@@ -37,31 +34,20 @@ return {
     },
     lazy = true,
     event = { "LspAttach" },
-    config = function()
-      local lspsaga = require("lspsaga")
-      lspsaga.setup({
-        symbol_in_winbar = {
-          enable = false,
-        },
-        code_action_lightbulb = {
-          enable = false,
-        },
-        lightbulb = {
-          enable = false,
-        },
-      })
-    end,
+    opts = {
+      symbol_in_winbar = { enable = false },
+      code_action_lightbulb = { enable = false },
+      lightbulb = { enable = false },
+    },
   },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = true,
     event = "VimEnter",
-    config = function()
-      require("lualine").setup({
-        options = { theme = "onedark" },
-      })
-    end,
+    opts = {
+      options = { theme = "catppuccin" },
+    },
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -73,30 +59,21 @@ return {
       { mode = "n", "<C-b>", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeをトグルする" },
       { mode = "n", "<C-m>", "<cmd>NvimTreeFocus<CR>", desc = "NvimTreeにフォーカス" },
     },
-    config = function()
-      require("nvim-tree").setup({
-        git = {
-          enable = true,
-          ignore = true,
-        },
-      })
-    end,
+    opts = {
+      git = { enable = true, ignore = true },
+    },
   },
   {
     "folke/trouble.nvim",
     keys = {
       { mode = "n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>" },
     },
-    config = function()
-      require("trouble").setup({})
-    end,
+    opts = {},
   },
   {
     "lewis6991/gitsigns.nvim",
     lazy = true,
     event = "BufAdd",
-    config = function()
-      require("gitsigns").setup({})
-    end,
+    opts = {},
   },
 }

@@ -5,8 +5,5 @@ return {
   keys = {
     { mode = "n", "<leader>lg", "<cmd>LazyGit<CR>" },
   },
-  config = function()
-    local lazygit = require("lazygit")
-    lazygit.setup({})
-  end,
+  opts = {},
 }
