@@ -2,21 +2,20 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-      "onsails/lspkind-nvim", -- 補完の表示をわかりやすくする
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-cmdline" },
+      { "L3MON4D3/LuaSnip" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "rafamadriz/friendly-snippets" },
+      { "zbirenbaum/copilot-cmp", dependencies = { "zbirenbaum/copilot.lua" }, opts = {} },
     },
     lazy = true,
     event = { "InsertEnter", "CmdlineEnter" },
     config = function()
       local cmp = require("cmp")
       local types = require("cmp.types")
-      local lspkind = require("lspkind")
 
       vim.opt.completeopt = { "menu", "menuone", "noselect" }
       cmp.setup({
@@ -34,14 +33,12 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "buffer" },
+          { name = "nvim_lsp", keyword_length = 1 }, -- LSP
+          { name = "copilot" }, -- GitHub Copilot
+          { name = "luasnip", keyword_length = 2 }, -- Lua snip
+          { name = "buffer", keyword_length = 2 },
           { name = "path" },
-          { name = "luasnip" },
         }),
-        formatting = {
-          format = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 }),
-        },
       })
 
       cmp.setup.cmdline({ "/", "?" }, {
