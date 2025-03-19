@@ -56,6 +56,7 @@ end
 -- custom server settings
 local server_settings = {
   rust_analyzer = rust_setup,
+  tsserver = typescript_setup,
 }
 
 -- default server setup
