@@ -46,12 +46,6 @@ return {
     end,
   },
   {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  },
-  {
     "monaqa/dial.nvim",
     lazy = true,
     keys = {
