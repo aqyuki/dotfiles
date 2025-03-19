@@ -10,6 +10,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
       "onsails/lspkind-nvim", -- 補完の表示をわかりやすくする
+      "zbirenbaum/copilot.lua",
     },
     lazy = true,
     event = { "InsertEnter", "CmdlineEnter" },
@@ -34,10 +35,11 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "buffer" },
+          { name = "nvim_lsp", keyword_length = 1 }, -- LSP
+          { name = "copilot" }, -- GitHub Copilot
+          { name = "luasnip", keyword_length = 2 }, -- Lua snip
+          { name = "buffer", keyword_length = 2 },
           { name = "path" },
-          { name = "luasnip" },
         }),
         formatting = {
           format = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 }),
