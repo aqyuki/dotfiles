@@ -9,7 +9,6 @@ return {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
-      "onsails/lspkind-nvim", -- 補完の表示をわかりやすくする
       "zbirenbaum/copilot.lua",
     },
     lazy = true,
@@ -17,7 +16,6 @@ return {
     config = function()
       local cmp = require("cmp")
       local types = require("cmp.types")
-      local lspkind = require("lspkind")
 
       vim.opt.completeopt = { "menu", "menuone", "noselect" }
       cmp.setup({
@@ -41,9 +39,6 @@ return {
           { name = "buffer", keyword_length = 2 },
           { name = "path" },
         }),
-        formatting = {
-          format = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 }),
-        },
       })
 
       cmp.setup.cmdline({ "/", "?" }, {
