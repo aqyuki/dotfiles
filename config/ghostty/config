@@ -1,6 +1,6 @@
 command = /usr/bin/fish
 shell-integration = fish
-theme = catppuccin-mocha
+theme = solarized-osaka-night
 
 clipboard-read = allow
 clipboard-write = allow
