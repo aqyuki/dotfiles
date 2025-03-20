@@ -5,5 +5,4 @@ return {
   keys = {
     { mode = "n", "<leader>lg", "<cmd>LazyGit<CR>" },
   },
-  opts = {},
 }
