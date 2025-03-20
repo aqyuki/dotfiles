@@ -1,16 +1,14 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+  "craftzdog/solarized-osaka.nvim",
+  lazy = false,
   priority = 1000,
   opts = {
-    flavour = "mocha",
-    integrations = {
-      notify = true,
-    },
+    transparent = true,
+    terminal_colors = true,
   },
   config = function(_, opts)
-    local catppuccin = require("catppuccin")
-    catppuccin.setup(opts)
-    vim.cmd.colorscheme("catppuccin")
+    local solarized = require("solarized-osaka")
+    solarized.setup(opts)
+    vim.cmd([[colorscheme solarized-osaka]])
   end,
 }

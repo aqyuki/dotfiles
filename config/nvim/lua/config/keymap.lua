@@ -9,10 +9,6 @@ local opts = { noremap = true, silent = true }
 keymap.set("i", "jj", "<Esc>", opts)
 keymap.set("i", "kk", "<Esc>", opts)
 
--- buffer controll
-keymap.set("n", "<C-[>", "<cmd>bprev<CR>", opts)
-keymap.set("n", "<C-]>", "<cmd>bnext<CR>", opts)
-
 -- toggle inlay hints
 keymap.set("n", "<leader>th", function()
   local lsp = vim.lsp
