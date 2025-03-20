@@ -9,8 +9,30 @@ local opts = { noremap = true, silent = true }
 keymap.set("i", "jj", "<Esc>", opts)
 keymap.set("i", "kk", "<Esc>", opts)
 
+-- Change tab
+keymap.set("n", "<C-[>", "<cmd>bprev<CR>", opts)
+keymap.set("n", "<C-]>", "<cmd>bnext<CR>", opts)
+
+-- Split window
+keymap.set("n", "ss", "<cmd>split<CR>", opts)
+keymap.set("n", "sv", "<cmd>vsplit<CR>", opts)
+
+-- Move window
+keymap.set("n", "sh", "<C-w>h", opts)
+keymap.set("n", "sj", "<C-w>j", opts)
+keymap.set("n", "sk", "<C-w>k", opts)
+keymap.set("n", "sl", "<C-w>l", opts)
+
+-- Increment/Decrement
+keymap.set("n", "+", "<C-a>", opts)
+keymap.set("n", "-", "<C-x>", opts)
+
+-- Select all
+keymap.set("n", "<C-a>", "gg<S-v>G", opts)
+
 -- toggle inlay hints
-keymap.set("n", "<leader>th", function()
+local function toggle_inlay_hint()
   local lsp = vim.lsp
   lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled())
-end, opts)
+end
+keymap.set("n", "<leader>th", toggle_inlay_hint, opts)

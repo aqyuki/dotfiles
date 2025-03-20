@@ -12,15 +12,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = true,
     event = { "BufAdd" },
-    keys = {
-      { "<C-[", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-      { "<C-]", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-    },
-    opts = {
-      options = {
-        mode = "tabs",
-      },
-    },
+    opts = {},
   },
   -- lua line
   {
