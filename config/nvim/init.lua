@@ -1,8 +1,5 @@
--- load keymap
-require("config.keymap")
+if vim.loader then
+  vim.loader.enable()
+end
 
--- load plugin
-require("config.plugin")
-
--- load option
-require("config.option")
+require("config.lazy")

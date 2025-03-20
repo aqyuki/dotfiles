@@ -1,27 +1,25 @@
 local ensure_installed = {
   "bash",
+  "fish",
   "dockerfile",
   "gitattributes",
   "gitignore",
   "go",
+  "rust",
+  "sql",
   "gomod",
   "gosum",
   "gowork",
   "proto",
-  "rust",
-  "sql",
   "json",
   "toml",
   "yaml",
 }
+
 return {
   "nvim-treesitter/nvim-treesitter",
-  lazy = true,
-  event = { "BufEnter" },
-  build = ":TSUpdate",
   opts = {
     ensure_installed = ensure_installed,
-    sync_install = false,
     highlight = { enable = true },
     indent = { enable = true },
   },

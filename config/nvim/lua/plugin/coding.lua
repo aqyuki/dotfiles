@@ -1,4 +1,47 @@
 return {
+  -- format
+  {
+    "stevearc/conform.nvim",
+    lazy = true,
+    event = "TextChanged",
+    keys = {
+      {
+        "gf",
+        function()
+          require("conform").format()
+        end,
+        desc = "conform format",
+      },
+    },
+    opts = {
+      formatters_by_ft = {
+        lua = { "stylua", lsp_format = "fallback" },
+        rust = { "rustfmt" },
+        go = { "goimports" },
+        yaml = { "prettier" },
+        json = { "prettier" },
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+      },
+    },
+  },
+  -- lint
+  { "mfussenegger/nvim-lint" },
+  -- Rename symbol
+  {
+    "smjonas/inc-rename.nvim",
+    lazy = true,
+    keys = {
+      {
+        "<leader>gn",
+        ":IncRename ",
+      },
+    },
+    opts = {},
+  },
+  -- support
   {
     "m4xshen/autoclose.nvim",
     lazy = true,
@@ -29,16 +72,6 @@ return {
     "numToStr/Comment.nvim",
     lazy = true,
     event = "InsertEnter",
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    lazy = true,
-    cmd = "Copilot",
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-      copilot_node_command = "node",
-    },
   },
   {
     "monaqa/dial.nvim",

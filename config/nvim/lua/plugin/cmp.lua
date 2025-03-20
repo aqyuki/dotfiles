@@ -1,15 +1,30 @@
 return {
   {
+    "zbirenbaum/copilot.lua",
+    lazy = true,
+    cmd = "Copilot",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      copilot_node_command = "node",
+    },
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    opts = {},
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-cmdline" },
-      { "L3MON4D3/LuaSnip" },
-      { "saadparwaiz1/cmp_luasnip" },
-      { "rafamadriz/friendly-snippets" },
-      { "zbirenbaum/copilot-cmp", dependencies = { "zbirenbaum/copilot.lua" }, opts = {} },
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets",
+      "zbirenbaum/copilot-cmp",
     },
     lazy = true,
     event = { "InsertEnter", "CmdlineEnter" },

@@ -1,22 +1,20 @@
--- set leader key
+-- setup `mapleader` and `maplocalleader`
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
--- common setting
 local keymap = vim.keymap
-keymap.set("i", "jj", "<esc>")
-keymap.set("i", "kk", "<esc>")
+local opts = { noremap = true, silent = true }
 
--- buffer setting
-keymap.set("n", "<C-[>", "<cmd>bprev<CR>")
-keymap.set("n", "<C-]>", "<cmd>bnext<CR>")
+-- change to normal mode when pressing `jj` or `kk` in insert mode
+keymap.set("i", "jj", "<Esc>", opts)
+keymap.set("i", "kk", "<Esc>", opts)
 
--- LSP actions
-keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
--- keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>") -- replaced by mason-null-ls
-keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>")
-keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
-keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
-vim.keymap.set("n", "<leader>th", function()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "Toggle Inlay Hints" })
+-- buffer controll
+keymap.set("n", "<C-[>", "<cmd>bprev<CR>", opts)
+keymap.set("n", "<C-]>", "<cmd>bnext<CR>", opts)
+
+-- toggle inlay hints
+keymap.set("n", "<leader>th", function()
+  local lsp = vim.lsp
+  lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled())
+end, opts)
