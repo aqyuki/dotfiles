@@ -9,9 +9,7 @@ return {
         "<leader>ff",
         function()
           local actions = require("telescope.builtin")
-          actions.find_files({
-            hidden = true,
-          })
+          actions.find_files({})
         end,
         desc = "Telescope find file",
       },
