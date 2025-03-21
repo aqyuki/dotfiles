@@ -17,6 +17,9 @@ require("config.option")
 
 ---@class LazyConfig
 local opts = {
+  defaults = {
+    version = "*",
+  },
   spec = {
     { import = "plugin" },
   },
