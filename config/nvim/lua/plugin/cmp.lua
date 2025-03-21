@@ -2,6 +2,11 @@ return {
   {
     "zbirenbaum/copilot.lua",
     lazy = true,
+    commit = "25ab971cb0badf3185d29f68a360c37b48d4e783",
+    -- After the following commits, a warning appears when starting the plugin,
+    -- as if the certificate verification has failed, so fix the commit hash until it is fixed.
+    -- commit = "256393d0737741c460726716cac3a605c45d1c3f",
+    pin = true,
     cmd = "Copilot",
     opts = {
       suggestion = { enabled = false },
