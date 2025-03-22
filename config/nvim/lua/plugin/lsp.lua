@@ -3,7 +3,7 @@ return {
   {
     "williamboman/mason.nvim",
     lazy = true,
-    command = { "Mason" },
+    cmd = { "Mason" },
     opts = {},
   },
   {
