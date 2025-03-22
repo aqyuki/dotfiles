@@ -48,7 +48,9 @@ return {
     lazy = true,
     keys = {
       { "K", "<cmd>Lspsaga hover_doc<CR>" },
-      { "<leader>ga", "<cmd>Lspsaga code_action<CR>" },
+      { "gd", "<cmd>Lspsaga peek_definition<CR>" },
+      { "gr", "<cmd>Lspsaga finder<CR>" },
+      { "ga", "<cmd>Lspsaga code_action<CR>" },
     },
     opts = {
       symbol_in_winbar = { enable = false },

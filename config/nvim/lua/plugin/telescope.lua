@@ -72,42 +72,6 @@ return {
         end,
         desc = "Open File Browser with the path of the current buffer",
       },
-      -- LSP references
-      {
-        "<leader>gr",
-        function()
-          local actions = require("telescope.builtin")
-          actions.lsp_references()
-        end,
-        desc = "Telescope LSP references",
-      },
-      -- LSP definitions
-      {
-        "<leader>gd",
-        function()
-          local actions = require("telescope.builtin")
-          actions.lsp_definitions()
-        end,
-        desc = "Telescope LSP definitions",
-      },
-      -- LSP implementations
-      {
-        "<leader>gi",
-        function()
-          local actions = require("telescope.builtin")
-          actions.lsp_implementations()
-        end,
-        desc = "Telescope LSP implementations",
-      },
-      -- LSP type definitions
-      {
-        "<leader>gtd",
-        function()
-          local actions = require("telescope.builtin")
-          actions.lsp_type_definitions()
-        end,
-        desc = "Telescope LSP type definitions",
-      },
     },
     opts = {
       defaults = {
