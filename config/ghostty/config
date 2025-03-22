@@ -1,6 +1,6 @@
 command = /usr/bin/fish
 shell-integration = fish
-theme = "Solarized Dark - Patched"
+theme = solarized-osaka-night
 
 clipboard-read = allow
 clipboard-write = allow
