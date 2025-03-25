@@ -33,7 +33,6 @@ opt.splitkeep = "cursor"
 opt.termguicolors = true
 
 -- fold
-opt.foldcolumn = "1"
 opt.foldenable = true
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
