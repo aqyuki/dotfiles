@@ -32,6 +32,13 @@ opt.splitright = true -- Put new windows right of current
 opt.splitkeep = "cursor"
 opt.termguicolors = true
 
+-- fold
+opt.foldcolumn = "1"
+opt.foldenable = true
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 90
+
 -- Language server settings
 local lsp = vim.lsp
 lsp.handlers["textDocument/publishDiagnostics"] =
