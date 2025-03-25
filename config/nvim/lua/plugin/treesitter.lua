@@ -23,5 +23,6 @@ return {
 		ensure_installed = ensure_installed,
 		highlight = { enable = true },
 		indent = { enable = true },
+		fold = { enable = true },
 	},
 }
