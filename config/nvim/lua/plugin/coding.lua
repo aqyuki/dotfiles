@@ -1,0 +1,112 @@
+return {
+	-- format
+	{
+		"stevearc/conform.nvim",
+		event = "BufWritePre",
+		keys = {
+			{
+				"gf",
+				function()
+					require("conform").format()
+				end,
+				desc = "conform format",
+			},
+		},
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua", lsp_format = "fallback" },
+				rust = { "rustfmt" },
+				go = { "goimports" },
+				yaml = { "prettier" },
+				json = { "prettier" },
+				markdown = { "prettier" },
+			},
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_format = "fallback",
+			},
+		},
+	},
+	-- lint
+	{
+		"mfussenegger/nvim-lint",
+		event = "BufWritePre",
+	},
+	-- Rename symbol
+	{
+		"smjonas/inc-rename.nvim",
+		keys = {
+			{
+				"gn",
+				":IncRename ",
+			},
+		},
+		opts = {},
+	},
+	-- support
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {
+			disable_filetype = { "TelescopePrompt" },
+		},
+	},
+	{
+		"kazhala/close-buffers.nvim",
+		keys = {
+			{ mode = "n", "<leader>w", "<cmd>BDelete this<CR>" },
+			{ mode = "n", "<leader>W", "<cmd>BDelete other<CR>" },
+			{ mode = "n", "<leader>q", "<cmd>BDelete all<CR>" },
+		},
+		opts = {
+			preserve_window_layout = { "this" },
+			next_buffer_cmd = function(windows)
+				require("bufferline").cycle(1)
+				local bufnr = vim.api.nvim_get_current_buf()
+
+				for _, window in ipairs(windows) do
+					vim.api.nvim_win_set_buf(window, bufnr)
+				end
+			end,
+		},
+	},
+	{
+		"numToStr/Comment.nvim",
+		event = "InsertEnter",
+		opts = {},
+	},
+	{
+		"monaqa/dial.nvim",
+		keys = {
+			{ mode = "n", "<C-a>", "<cmd>DialIncrement<CR>" },
+			{ mode = "n", "<C-x>", "<cmd>DialDecrement<CR>" },
+			{ mode = "n", "+", "<cmd>DialIncrement<CR>" },
+			{ mode = "n", "-", "<cmd>DialDecrement<CR>" },
+		},
+		opts = {},
+	},
+	{
+		"kylechui/nvim-surround",
+		event = { "BufAdd" },
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
+		opts = {},
+	},
+	{
+		"shellRaining/hlchunk.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {
+			chunk = {
+				enable = true,
+				duration = 150,
+				delay = 100,
+			},
+			line_num = {
+				enable = true,
+				style = "#806d9c",
+			},
+		},
+	},
+}
