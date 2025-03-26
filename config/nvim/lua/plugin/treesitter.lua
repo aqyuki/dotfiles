@@ -1,28 +1,19 @@
-local ensure_installed = {
-	"bash",
-	"fish",
-	"dockerfile",
-	"gitattributes",
-	"gitignore",
-	"go",
-	"rust",
-	"sql",
-	"gomod",
-	"gosum",
-	"gowork",
-	"proto",
-	"json",
-	"toml",
-	"yaml",
-}
-
 return {
-	"nvim-treesitter/nvim-treesitter",
-	event = "BufAdd",
-	opts = {
-		ensure_installed = ensure_installed,
-		highlight = { enable = true },
-		indent = { enable = true },
-		fold = { enable = true },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+		event = "BufAdd",
+		build = ":TSUpdate",
+		opts = {
+			ensure_installed = "all",
+			auto_install = true,
+			highlight = { enable = true },
+			indent = { enable = true },
+			fold = { enable = true },
+		},
+		config = function(_, opts)
+			local treesitter = require("nvim-treesitter.configs")
+			treesitter.setup(opts)
+		end,
 	},
 }
