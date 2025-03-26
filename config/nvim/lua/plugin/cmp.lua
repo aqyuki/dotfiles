@@ -11,6 +11,7 @@ return {
 	{
 		"zbirenbaum/copilot-cmp",
 		dependencies = { "zbirenbaum/copilot.lua" },
+		opts = {},
 	},
 	{
 		"hrsh7th/nvim-cmp",
