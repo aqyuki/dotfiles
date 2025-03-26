@@ -9,6 +9,10 @@ local opts = { noremap = true, silent = true }
 keymap.set("i", "jj", "<Esc>", opts)
 keymap.set("i", "kk", "<Esc>", opts)
 
+-- Save modify
+keymap.set("n", "<leader>w", "<cmd>w<CR>", opts)
+keymap.set("n", "<leader>wq", "<cmd>wq<CR>", opts)
+
 -- Change tab
 keymap.set("n", "<C-[>", "<cmd>bprev<CR>", opts)
 keymap.set("n", "<C-]>", "<cmd>bnext<CR>", opts)
