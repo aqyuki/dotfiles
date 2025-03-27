@@ -71,7 +71,6 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<C-l>"] = cmp.mapping.complete(),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp", keyword_length = 1 }, -- LSP
