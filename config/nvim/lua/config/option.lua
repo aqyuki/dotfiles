@@ -38,8 +38,8 @@ opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 90
 
--- Language server settings
-local lsp = vim.lsp
-lsp.handlers["textDocument/publishDiagnostics"] =
-	lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
-lsp.inlay_hint.enable(true)
+vim.diagnostic.config({
+	-- virtual_text = { current_line = true },
+	virtual_lines = { current_line = true },
+})
+vim.lsp.inlay_hint.enable(true)
