@@ -1,6 +1,7 @@
 [tools]
 air = "latest"
 buf = "latest"
+gotestsum = "latest"
 lazydocker = "latest"
 lefthook = "latest"
 node = "23.9.0"
