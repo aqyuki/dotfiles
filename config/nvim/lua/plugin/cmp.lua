@@ -69,6 +69,8 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
+					["<M-l>"] = cmp.mapping.complete(),
+					["<M-e>"] = cmp.mapping.abort(),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp", keyword_length = 1 }, -- LSP
