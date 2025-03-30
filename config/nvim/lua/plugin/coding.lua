@@ -1,5 +1,4 @@
 return {
-	-- format
 	{
 		"stevearc/conform.nvim",
 		event = "BufWritePre",
@@ -27,29 +26,20 @@ return {
 			},
 		},
 	},
-	-- lint
 	{
 		"mfussenegger/nvim-lint",
 		event = "BufWritePre",
 	},
-	-- Rename symbol
 	{
 		"smjonas/inc-rename.nvim",
-		keys = {
-			{
-				"gn",
-				":IncRename ",
-			},
-		},
+		command = "IncRename",
+		keys = { mode = "n", "gn", ":IncRename " },
 		opts = {},
 	},
-	-- support
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		opts = {
-			disable_filetype = { "TelescopePrompt" },
-		},
+		opts = {},
 	},
 	{
 		"kazhala/close-buffers.nvim",
@@ -80,19 +70,7 @@ return {
 		keys = {
 			{ mode = "n", "<C-a>", "<cmd>DialIncrement<CR>" },
 			{ mode = "n", "<C-x>", "<cmd>DialDecrement<CR>" },
-			{ mode = "n", "+", "<cmd>DialIncrement<CR>" },
-			{ mode = "n", "-", "<cmd>DialDecrement<CR>" },
 		},
-		opts = {},
-	},
-	{
-		"kylechui/nvim-surround",
-		event = { "BufAdd" },
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		opts = {},
 	},
 	{
 		"shellRaining/hlchunk.nvim",

@@ -30,7 +30,6 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 
-			vim.opt.completeopt = { "menu", "menuone", "noselect" }
 			cmp.setup({
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body)
@@ -45,9 +44,7 @@ return {
 							if luasnip.expandable() then
 								luasnip.expand()
 							else
-								cmp.confirm({
-									select = true,
-								})
+								cmp.confirm({ select = true })
 							end
 						else
 							fallback()
@@ -71,6 +68,8 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
+					["<M-l>"] = cmp.mapping.complete(),
+					["<M-e>"] = cmp.mapping.abort(),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp", keyword_length = 1 }, -- LSP
@@ -91,6 +90,7 @@ return {
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
+					{ name = "path" },
 					{ name = "cmdline" },
 				},
 			})
