@@ -86,15 +86,6 @@ return {
 		opts = {},
 	},
 	{
-		"kylechui/nvim-surround",
-		event = { "BufAdd" },
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		opts = {},
-	},
-	{
 		"shellRaining/hlchunk.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
