@@ -72,15 +72,26 @@ return {
 				desc = "Open File Browser with the path of the current buffer",
 			},
 		},
-		opts = {
-			defaults = {
-				theme = "dropdown",
-			},
-			extensions = {
-				file_browser = {
-					hijack_netrw = true,
+		config = function()
+			local telescope = require("telescope")
+			local config = require("telescope.config")
+
+			local vimgrep_arguments = { unpack(config.values.vimgrep_arguments) }
+			table.insert(vimgrep_arguments, "--hidden")
+			table.insert(vimgrep_arguments, "--glob")
+			table.insert(vimgrep_arguments, "!**/.git/*")
+
+			telescope.setup({
+				defaults = {
+					theme = "dropdown",
+					vimgrep_arguments = vimgrep_arguments,
 				},
-			},
-		},
+				extensions = {
+					file_browser = {
+						hijack_netrw = true,
+					},
+				},
+			})
+		end,
 	},
 }
