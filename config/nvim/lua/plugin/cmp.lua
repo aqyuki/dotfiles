@@ -30,7 +30,6 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 
-			vim.opt.completeopt = { "menu", "menuone", "noselect" }
 			cmp.setup({
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body)
