@@ -33,7 +33,7 @@ return {
 	{
 		"smjonas/inc-rename.nvim",
 		command = "IncRename",
-		keys = { mode = "n", "gn", ":IncRename " },
+		keys = { { mode = "n", "gn", ":IncRename " } },
 		opts = {},
 	},
 	{
