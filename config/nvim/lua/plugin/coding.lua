@@ -1,5 +1,4 @@
 return {
-	-- format
 	{
 		"stevearc/conform.nvim",
 		event = "BufWritePre",
@@ -27,29 +26,20 @@ return {
 			},
 		},
 	},
-	-- lint
 	{
 		"mfussenegger/nvim-lint",
 		event = "BufWritePre",
 	},
-	-- Rename symbol
 	{
 		"smjonas/inc-rename.nvim",
-		keys = {
-			{
-				"gn",
-				":IncRename ",
-			},
-		},
+		command = "IncRename",
+		keys = { mode = "n", "gn", ":IncRename " },
 		opts = {},
 	},
-	-- support
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		opts = {
-			disable_filetype = { "TelescopePrompt" },
-		},
+		opts = {},
 	},
 	{
 		"kazhala/close-buffers.nvim",
