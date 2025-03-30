@@ -80,10 +80,7 @@ return {
 		keys = {
 			{ mode = "n", "<C-a>", "<cmd>DialIncrement<CR>" },
 			{ mode = "n", "<C-x>", "<cmd>DialDecrement<CR>" },
-			{ mode = "n", "+", "<cmd>DialIncrement<CR>" },
-			{ mode = "n", "-", "<cmd>DialDecrement<CR>" },
 		},
-		opts = {},
 	},
 	{
 		"shellRaining/hlchunk.nvim",
