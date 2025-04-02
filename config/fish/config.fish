@@ -33,7 +33,7 @@ mise completion fish | source
 task --completion fish | source
 
 # GHQ
-set --export GHQ_ROOT $HOME/.projects
+set --export GHQ_ROOT $HOME/projects
 
 # fzf
 set --export FZF_DEFAULT_OPTS '--height 50% --reverse --border=rounded'
