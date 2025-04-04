@@ -15,3 +15,13 @@
 - Neovim
 - tmux
 - and more...
+
+## ✨️ Install
+
+**Installation Dependencies** : `git`, `yay`
+
+```bash
+git pull https://github.com/aqyuki/dotfiles ~/.dotfiles
+cd ./dotfiles
+./install.sh
+```
