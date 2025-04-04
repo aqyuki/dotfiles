@@ -105,35 +105,6 @@ install_dependency() {
   fi
 }
 
-install_tmux_plugins(){
-  local tmux_plugin_dir="$XDG_DATA_HOME/tmux/plugins"
-
-  if [ ! -d "$tmux_plugin_dir" ]; then
-    info "$tmux_plugin_dir does not exist. Create it."
-    mkdir -p "$tmux_plugin_dir"
-    info "created $tmux_plugin_dir"
-  fi
-
-  # OneDark theme
-  # Ref : https://github.com/odedlaz/tmux-onedark-theme
-  if [ ! -d "$tmux_plugin_dir/onedark" ]; then
-    info "Installing odedlaz/tmux-onedark-them"
-    git clone https://github.com/odedlaz/tmux-onedark-theme.git "$tmux_plugin_dir/onedark"
-    info "Installed odedlaz/tmux-onedark-the"
-  else
-    warn "Skip : odedlaz/tmux-onedark-theme is already installed"
-  fi
-  # catppuccin theme
-  # Ref : https://github.com/catppuccin/tmux
-  if [ ! -d "$tmux_plugin_dir/catppuccin" ]; then
-    info "Installing catppuccin/tmux"
-    git clone https://github.com/catppuccin/tmux.git "$tmux_plugin_dir/catppuccin"
-    info "Installed catppuccin/tmux"
-  else
-    warn "Skip : catppuccin/tmux is already installed."
-  fi
-}
-
 # cleanup removes unused packages
 cleanup() {
   if yay -Qdtq >/dev/null; then
@@ -159,13 +130,6 @@ main() {
   info "Start to install dependencies..."
   install_dependency
   info "Dependencies are successfully installed."
-
-  # install external dependencies
-  #
-  # install tmux plugin
-  info "Start to install tmux plugins..."
-  install_tmux_plugins
-  info "Plugins are successfully installed."
 
   # install dotfiles
   info "Start to install dotfiles..."
