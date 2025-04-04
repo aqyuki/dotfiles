@@ -16,4 +16,3 @@ mise
 neovim
 ripgrep
 starship
-zellij
