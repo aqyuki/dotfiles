@@ -1,7 +1,5 @@
-[user]
-	email = yksk171118@gmail.com
-	name = aqyuki
-	signingkey = 50CB878774488C3B690B88C54F40AD589E1ECE72
+[include]
+  path = ~/.config/git/profiles/personal
 
 [includeIf "gitdir:~/projects/github.com/yumemi/"]
   path = ~/.config/git/profiles/yumemi
