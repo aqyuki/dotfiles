@@ -11,9 +11,6 @@ set --export XDG_CACHE_HOME $HOME/.cache
 set --export XDG_BIN_HOME $HOME/.local/bin
 fish_add_path $XDG_BIN_HOME
 
-# tmux setup
-set --export TMUX_SHELL (which fish)
-
 # Go
 set --unexport GO_INSTALL_PATH /usr/local/go
 set --export GOPATH $XDG_DATA_HOME/go
