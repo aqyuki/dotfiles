@@ -16,3 +16,4 @@ mise
 neovim
 ripgrep
 starship
+tmux
