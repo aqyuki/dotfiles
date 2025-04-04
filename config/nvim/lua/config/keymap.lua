@@ -10,25 +10,23 @@ keymap.set("i", "jj", "<Esc>", opts)
 keymap.set("i", "kk", "<Esc>", opts)
 
 -- Change tab
-keymap.set("n", "<C-[>", "<cmd>bprev<CR>", opts)
-keymap.set("n", "<C-]>", "<cmd>bnext<CR>", opts)
+keymap.set("n", "bn", "<cmd>bnext<CR>", opts)
+keymap.set("n", "bp", "<cmd>bprev<CR>", opts)
 
 -- Split window
 keymap.set("n", "ss", "<cmd>split<CR>", opts)
+keymap.set("n", "s-", "<cmd>split<CR>", opts)
 keymap.set("n", "sv", "<cmd>vsplit<CR>", opts)
+keymap.set("n", "s\\", "<cmd>vsplit<CR>", opts)
+
+-- Close window
+keymap.set("n", "sq", "<C-w>q", opts)
 
 -- Move window
 keymap.set("n", "sh", "<C-w>h", opts)
 keymap.set("n", "sj", "<C-w>j", opts)
 keymap.set("n", "sk", "<C-w>k", opts)
 keymap.set("n", "sl", "<C-w>l", opts)
-
--- Increment/Decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
-
--- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G", opts)
 
 -- toggle inlay hints
 local function toggle_inlay_hint()
