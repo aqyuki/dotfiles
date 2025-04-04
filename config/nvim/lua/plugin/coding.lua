@@ -87,4 +87,17 @@ return {
 			},
 		},
 	},
+	{
+		"akinsho/toggleterm.nvim",
+		keys = {
+			{ mode = "n", "<leader>tt", "<cmd>ToggleTerm<CR>" },
+			{ mode = "t", "<leader>tt", "<cmd>ToggleTerm<CR>" },
+		},
+		opts = {
+			direction = "float",
+			float_opts = {
+				border = "curved",
+			},
+		},
+	},
 }
