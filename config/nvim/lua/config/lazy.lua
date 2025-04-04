@@ -24,6 +24,7 @@ local opts = {
 		lazy = true,
 	},
 	spec = {
+		{ "folke/lazy.nvim" },
 		{ import = "plugin" },
 	},
 	checker = {
@@ -33,6 +34,18 @@ local opts = {
 	performance = {
 		cache = {
 			enabled = true,
+		},
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
 		},
 	},
 	ui = {
