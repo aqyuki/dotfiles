@@ -87,4 +87,23 @@ return {
 			},
 		},
 	},
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		command = { "FzfLua" },
+		keys = {
+			{ mode = "n", "<leader>ff", "<cmd>FzfLua files<CR>" },
+			{ mode = "n", "<leader>fp", "<cmd>FzfLua buffers<CR>" },
+			{ mode = "n", "<leader>fg", "<cmd>FzfLua live_grep<CR>" },
+			{ mode = "n", "<leader>fh", "<cmd>FzfLua oldfiles<CR>" },
+		},
+		opts = {},
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		keys = {
+			{ mode = "n", "<leader>lg", "<cmd>LazyGit<CR>" },
+		},
+	},
 }

@@ -11,9 +11,21 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = { "VimEnter" },
+		opts = {},
+	},
+	-- filer
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		keys = {
+			{ mode = "n", "<leader>e", "<cmd>NvimTreeToggle<CR>" },
+			{ mode = "n", "<leader>fb", "<cmd>NvimTreeFocus<CR>" },
+		},
 		opts = {
-			options = {
-				theme = "onedark",
+			filters = {
+				enable = false,
 			},
 		},
 	},
