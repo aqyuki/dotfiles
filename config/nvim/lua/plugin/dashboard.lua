@@ -58,9 +58,9 @@ local buttons = {
 	type = "group",
 	val = {
 		button("e", "  New File", "<cmd>enew<CR>"),
-		button("f", "󰍉  Find File", "<cmd>Telescope find_files<CR>"),
-		button("h", "  Recently Opened Files", "<cmd>Telescope oldfiles<CR>"),
-		button("g", "󰊄  Find word", "<cmd>Telescope live_grep<CR>"),
+		button("f", "󰍉  Find File", "<cmd>FzfLua files<CR>"),
+		button("h", "  Recently Opened Files", "<cmd>FzfLua oldfiles<CR>"),
+		button("g", "󰊄  Find word", "<cmd>FzfLua live_grep<CR>"),
 	},
 	opts = { spacing = 1 },
 }
@@ -69,7 +69,7 @@ return {
 	"goolord/alpha-nvim",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
-		"nvim-telescope/telescope.nvim",
+		"ibhagwan/fzf-lua",
 	},
 	event = "VimEnter",
 	opts = {

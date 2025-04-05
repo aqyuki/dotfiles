@@ -1,5 +1,5 @@
 --- Onedark theme
----@type "darker" | "cool" | "deep" | "warm" | "warm"
+---@type "darker" | "cool" | "deep" | "warm" | "warmer"
 local style = "darker"
 
 return {
