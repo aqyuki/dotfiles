@@ -10,8 +10,8 @@ keymap.set("i", "jj", "<Esc>", opts)
 keymap.set("i", "kk", "<Esc>", opts)
 
 -- Change tab
-keymap.set("n", "bp", "<cmd>bprev<CR>", opts)
-keymap.set("n", "bn", "<cmd>bnext<CR>", opts)
+keymap.set("n", "<C-[>", "<cmd>bprev<CR>", opts)
+keymap.set("n", "<C-]>", "<cmd>bnext<CR>", opts)
 
 -- Split window
 keymap.set("n", "ss", "<cmd>split<CR>", opts)
