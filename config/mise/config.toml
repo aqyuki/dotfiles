@@ -1,0 +1,14 @@
+[tools]
+coursier = "latest"
+java = "temurin-21.0.7+6.0.LTS"
+lua = "latest"
+node = "23.11.1"
+"npm:cz-git" = "latest"
+"npm:czg" = "latest"
+pnpm = "latest"
+usage = "latest"
+yarn = "latest"
+
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = ["node"]
