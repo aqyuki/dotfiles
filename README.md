@@ -20,6 +20,7 @@ cd .dotfiles
 > [!NOTE]
 > 以下のツールは[install.sh](./install.sh)経由でインストールされないため、手動でのインストールが必要です。
 >
+> - [aqua](https://aquaproj.github.io/)
 > - [uv](https://docs.astral.sh/uv/)
 > - [rust](https://www.rust-lang.org/ja)
 > - [go](https://go.dev/)
