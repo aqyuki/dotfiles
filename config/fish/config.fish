@@ -25,6 +25,10 @@ abbr -a cgr "cd (git rev-parse --show-superproject-working-tree --show-toplevel 
 mise activate fish | source
 mise completion fish | source
 
+# activate uv
+uv generate-shell-completion fish | source
+uvx --generate-shell-completion fish | source
+
 # GHQ settings
 set -Ux GHQ_ROOT $XDG_DATA_HOME/projects
 
