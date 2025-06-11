@@ -29,6 +29,11 @@ mise completion fish | source
 uv generate-shell-completion fish | source
 uvx --generate-shell-completion fish | source
 
+# activate aqua
+aqua completion fish | source
+set -Ux AQUA_ROOT_DIR $XDG_DATA_HOME/aquaproj-aqua
+fish_add_path $AQUA_ROOT_DIR/bin
+
 # GHQ settings
 set -Ux GHQ_ROOT $XDG_DATA_HOME/projects
 
