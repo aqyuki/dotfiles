@@ -16,3 +16,10 @@ git clone https://github.com/aqyuki/dotfiles-linux.git .dotfiles
 cd .dotfiles
 ./install.sh
 ```
+
+> [!NOTE]
+> 以下のツールは[install.sh](./install.sh)経由でインストールされないため、手動でのインストールが必要です。
+>
+> - [uv](https://docs.astral.sh/uv/)
+> - [rust](https://www.rust-lang.org/ja)
+> - [go](https://go.dev/)
