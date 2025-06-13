@@ -44,7 +44,6 @@ set -Ux SANDBOX_ROOT $HOME/sandbox
 fzf --fish | source
 set -Ux FZF_DEFAULT_OPTS '--height 50% --layout reverse --border rounded'
 bind \cg __fzf_project_directory
-bind \cf __fzf_sandbox_directory
 
 # load prompt
 starship init fish | source
