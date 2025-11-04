@@ -1,0 +1,7 @@
+abbrevs:
+  - name: lazygit
+    abbr: lg
+    snippet: lazygit
+  - name: Create temporary directory
+    abbr: tmpd
+    snippet: cd $(mktemp -d)
