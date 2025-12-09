@@ -1,3 +1,5 @@
 [tools]
 node = "24"
+"npm:cz-git" = "latest"
+"npm:czg" = "latest"
 pnpm = "10"
