@@ -1,0 +1,5 @@
+command = /opt/homebrew/bin/fish
+
+font-size = 13
+font-family = HackGen Console NF
+theme = Catppuccin Macchiato
