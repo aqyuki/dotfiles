@@ -1,0 +1,7 @@
+[user]
+	signingkey = 17F5881CF598A985
+	email = yksk171118@gmail.com
+	name = aqyuki
+
+[commit]
+	gpgsign = true
