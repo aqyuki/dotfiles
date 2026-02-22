@@ -1,3 +1,7 @@
+# Homebrew
+fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
+
 # XDG Base Directory Specification
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_CACHE_HOME $HOME/.cache
