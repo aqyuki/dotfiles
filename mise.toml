@@ -1,0 +1,3 @@
+[tasks.bundle]
+description = "Homebrewで管理されているアプリケーションをBrewfileとして出力します"
+run = "brew bundle dump --no-vscode --no-go --no-cargo --force"
