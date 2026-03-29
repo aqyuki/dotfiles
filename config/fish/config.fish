@@ -1,6 +1,8 @@
 # Homebrew
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
+set -gX HOMEBREW_NO_ANALYTICS 1
+set -gX HOMEBREW_NO_AUTO_UPDATE 1
 
 # XDG Base Directory Specification
 set -gx XDG_CONFIG_HOME $HOME/.config
