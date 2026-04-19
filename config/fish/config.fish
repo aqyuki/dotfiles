@@ -35,6 +35,7 @@ mise activate fish | source
 
 # abbr
 abbr lg lazygit
+abbr proot 'cd (git rev-parse --show-toplevel)'
 
 # hotkeys
 bind \cg __fzf_repository_find
