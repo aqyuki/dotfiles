@@ -2,7 +2,7 @@
 node = "24"
 "npm:cz-git" = "latest"
 "npm:czg" = "latest"
-pnpm = "10"
+pnpm = "11"
 
 [settings]
 install_before = "2d"
