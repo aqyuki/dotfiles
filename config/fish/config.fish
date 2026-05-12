@@ -33,6 +33,9 @@ set -gx FZF_DEFAULT_OPTS "--height 50% --layout reverse --border rounded"
 # mise
 mise activate fish | source
 
+# Codex CLI
+codex completion fish | source
+
 # abbr
 abbr lg lazygit
 abbr proot 'cd (git rev-parse --show-toplevel)'
