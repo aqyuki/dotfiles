@@ -10,23 +10,30 @@
 - Shell : fish
 - Terminal : Ghostty
 
-## Installation
+## Setup
 
-`install.sh`を実行することで、各種設定を**XDG Base Directory Specification**に基づいて配置します。
-このスクリプトではHomebrew等のインストールは行わないため、別途インストールが必要となります。
+このリポジトリで管理している設定ファイルを `$XDG_CONFIG_HOME` もしくは `$HOME/.config` もしくは `$HOME/.config` に配置する。
 
-## Tips
+`link.sh`の詳細を確認したい場合は `./scripts/link.sh --help` を実行してください。
 
-### Brewfile
-
-Homebrewで管理されているアプリケーションは[Brewfile](./Brewfile)で管理されています。
-BrewfileにはHomebrewで管理されているアプリケーションのみ含まれておりVSCodeの拡張機能等は含まれていません。
-
-Brewfileを更新する場合は以下のコマンドを実行してください。
 ```bash
-brew bundle dump --no-vscode --no-go --no-cargo --force
+git clone https://github.com/aqyuki/dotfiles
+cd dotfiles
 
-# miseを導入している場合は以下のコマンドでも可能
-mise trust
-mise task bundle
+chmod +x scripts/link.sh
+./scripts/link.sh
+```
+
+## Homebrew
+
+[`Brewfile`](./Brewfile)を更新する際には以下のコマンドを実行する。
+
+```bash
+brew bundle dump --no-go --no-cargo --no-vscode --force
+```
+
+Brewfileに記載されているパッケージをインストールする場合は以下のコマンドを実行する。
+
+```bash
+brew bundle
 ```
