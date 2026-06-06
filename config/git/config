@@ -12,6 +12,15 @@
 [pull]
   rebase = true
 
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[merge]
+  conflictStyle = zdiff3
+
 [rerere]
   enabled = true
 
@@ -25,3 +34,10 @@
 
 [includeIf "gitdir:~/projects/github.com/yumemi/"]
   path = ~/.config/git/profiles/accenture
+
+[delta]
+  navigate = true
+  dark = true
+  line-numbers = true
+  side-by-side = true
+
