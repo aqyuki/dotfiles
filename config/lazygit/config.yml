@@ -1,3 +1,8 @@
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+
 gui:
   theme:
     activeBorderColor:
@@ -29,6 +34,8 @@ customCommands:
     context: "files"
     command: "czg emoji"
     output: terminal
-keybinding:
-  files:
-    commitChanges: C
+  - key: C
+    description: "czg を利用して絵文字無しコミットを行います。"
+    context: "files"
+    command: "czg"
+    output: "terminal"
