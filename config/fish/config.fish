@@ -37,6 +37,7 @@ mise activate fish | source
 uv generate-shell-completion fish | source
 
 # Codex CLI
+set -gx CODEX_HOME "$XDG_CONFIG_HOME/codex"
 codex completion fish | source
 
 # abbr
