@@ -53,6 +53,4 @@ brew "ykman"
 brew "k1low/tap/mo", trusted: true
 # runn is a tool for running operations following a scenario.
 brew "k1low/tap/runn", trusted: true
-# OpenAI's coding agent that runs in your terminal
-cask "codex"
 npm "corepack"
