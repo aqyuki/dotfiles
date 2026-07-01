@@ -29,12 +29,12 @@ gui:
     "*": "#b7bdf8"
 
 customCommands:
-  - key: c
+  - key: C
     description: "czg を利用して絵文字付きコミットを行います。"
     context: "files"
     command: "czg emoji"
     output: terminal
-  - key: C
+  - key: c
     description: "czg を利用して絵文字無しコミットを行います。"
     context: "files"
     command: "czg"
