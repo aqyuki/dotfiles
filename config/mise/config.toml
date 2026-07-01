@@ -2,6 +2,7 @@
 "cargo:cargo-expand" = "latest"
 claude = "latest"
 codex = "latest"
+golangci-lint = "latest"
 node = "24"
 "npm:@aikidosec/safe-chain" = "1.1.3"
 "npm:ccusage" = "latest"
