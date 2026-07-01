@@ -19,7 +19,10 @@ set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 # Go
+set -gx GOPATH $HOME/go
+set -gx GOBIN $GOPATH/bin
 fish_add_path /usr/local/go/bin
+fish_add_path $GOBIN
 
 # starship
 starship init fish | source
