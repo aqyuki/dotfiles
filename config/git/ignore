@@ -57,3 +57,6 @@ mise.local.toml
 *.so
 *.pyc
 *.pyo
+
+# Claude Code
+**/.claude/settings.local.json
