@@ -44,8 +44,9 @@ uv generate-shell-completion fish | source
 codex completion fish | source
 
 # abbr
-abbr lg lazygit
-abbr proot 'cd (git rev-parse --show-toplevel)'
+abbr --add --global lg lazygit
+abbr --add --global proot 'cd (git rev-parse --show-toplevel)'
+abbr --add --global --command git pf 'push --force-if-includes  --force-with-lease'
 
 # hotkeys
 bind \cg __fzf_repository_find
