@@ -1,4 +1,4 @@
-tap "k1low/tap", trusted: true
+tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap", trusted: true
 # Database toolkit
 brew "atlas"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -53,4 +53,8 @@ brew "ykman"
 brew "k1low/tap/mo", trusted: true
 # runn is a tool for running operations following a scenario.
 brew "k1low/tap/runn", trusted: true
+# Terminal-based AI coding assistant
+cask "claude-code"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 npm "corepack"
