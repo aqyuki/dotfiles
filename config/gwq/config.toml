@@ -1,0 +1,18 @@
+[worktree]
+basedir = "~/worktrees"
+auto_mkdir = true
+
+[finder]
+preview = true
+
+[naming]
+template = "{{.Host}}/{{.Owner}}/{{.Repository}}/{{.Branch}}"
+sanitize_chars = { "/" = "-", ":" = "-" }
+
+[cd]
+launch_shell = false
+auto_cd_on_add = false
+
+[ui]
+icons = true
+tilde_home = true

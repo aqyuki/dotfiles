@@ -30,6 +30,9 @@ starship init fish | source
 # ghq
 set -gx GHQ_ROOT $HOME/projects
 
+# gwq
+gwq completion fish | source
+
 # fzf
 set -gx FZF_DEFAULT_OPTS "--height 50% --layout reverse --border rounded"
 

@@ -1,3 +1,4 @@
+tap "d-kuro/tap", trusted: true
 tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap", trusted: true
 # Database toolkit
 brew "atlas"
@@ -49,6 +50,8 @@ brew "tokei"
 brew "trufflehog"
 # Tool for managing your YubiKey configuration
 brew "ykman"
+# Git Worktree Manager for efficient worktree operations
+brew "d-kuro/tap/gwq", trusted: true
 # mo is a Markdown viewer that opens .md files in a browser.
 brew "k1low/tap/mo", trusted: true
 # runn is a tool for running operations following a scenario.
