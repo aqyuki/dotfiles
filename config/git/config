@@ -32,6 +32,10 @@
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+	insteadOf = ssh://git@github.com/
+
 [includeIf "gitdir:~/projects/github.com/yumemi/"]
   path = ~/.config/git/profiles/accenture
 
