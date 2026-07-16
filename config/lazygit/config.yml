@@ -3,6 +3,8 @@ git:
     - colorArg: always
       pager: delta --dark --paging=never
   parseEmoji: true
+worktree:
+  defaultPath: ".worktrees"
 
 gui:
   tabWidth: 2
@@ -41,12 +43,3 @@ customCommands:
     context: "files"
     command: "czg"
     output: "terminal"
-  - key: n
-    description: "gwq を利用して新しい git worktree を作成します。"
-    context: "worktrees"
-    prompts:
-      - type: "menuFromCommand"
-        title: "Select a branch to create a new worktree from"
-        key: "Branch"
-        command: "git branch --format='%(refname:short)'"
-    command: "gwq add --stay {{ .Form.Branch }}"

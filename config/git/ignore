@@ -61,5 +61,5 @@ mise.local.toml
 # Claude Code
 **/.claude/settings.local.json
 
-# gwq
-.gwq.toml
+# Local settings
+.worktrees

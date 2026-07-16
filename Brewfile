@@ -1,6 +1,6 @@
 tap "ariga/tap", trusted: true
 tap "d-kuro/tap", trusted: true
-tap "k1low/tap", trusted: true
+tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap", trusted: true
 # Securely store and access AWS credentials in development environments
 brew "aws-vault"
 # Interpreted, interactive, object-oriented programming language
@@ -65,8 +65,6 @@ brew "vips"
 brew "ykman"
 # A database toolkit
 brew "ariga/tap/atlas", trusted: true
-# Git Worktree Manager for efficient worktree operations
-brew "d-kuro/tap/gwq", trusted: true
 # mo is a Markdown viewer that opens .md files in a browser.
 brew "k1low/tap/mo", trusted: true
 # runn is a tool for running operations following a scenario.
