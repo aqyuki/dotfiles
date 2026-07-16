@@ -1,0 +1,16 @@
+[tasks.dump]
+description = "Brewfileを更新する"
+run = "brew bundle dump --force --no-go -no-cargo --no-vscode"
+
+[dotfiles]
+"~/.config/fish" = { source = "config/fish" }
+"~/.config/ghostty" = { source = "config/ghostty" }
+"~/.config/git" = { source = "config/git" }
+"~/.config/lazygit" = { source = "config/lazygit" }
+"~/.config/mise" = { source = "config/mise" }
+"~/.config/nvim" = { source = "config/nvim" }
+"~/.config/starship.toml" = { source = "config/starship.toml" }
+
+[settings]
+dotfiles.root = "~/.dotfiles"
+dotfiles.default_mode = "symlink"

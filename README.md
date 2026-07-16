@@ -12,28 +12,45 @@
 
 ## Setup
 
-このリポジトリで管理している設定ファイルを `$XDG_CONFIG_HOME` もしくは `$HOME/.config` もしくは `$HOME/.config` に配置する。
+dotfilesはmiseによって管理されています。現時点では設定ファイルの配置にのみmiseを利用しており依存ツールのインストール等は手動で行う必要があります。
 
-`link.sh`の詳細を確認したい場合は `./scripts/link.sh --help` を実行してください。
+### Pre-requirements
 
-```bash
-git clone https://github.com/aqyuki/dotfiles
-cd dotfiles
+以下に示すツールは事前に導入していてください。
 
-chmod +x scripts/link.sh
-./scripts/link.sh
-```
+- Homebrew
 
-## Homebrew
+### Installation
 
-[`Brewfile`](./Brewfile)を更新する際には以下のコマンドを実行する。
+> [!IMPORTANT]
+> GoおよびRustのツールチェーンは手動での導入としています。
+> 公式サイトの指示に従ってインストールを行ってください。
 
 ```bash
-brew bundle dump --no-go --no-cargo --no-vscode --force
+# このリポジトリをcloneする
+git clone https://github.com/aqyuki/dotfiles ~/.dotfiles
+
+# ~/.dotfilesに移動
+cd ~/.dotfiles
+
+# Homebrewで管理しているツール類をインストールする
+brew dump
+
+# 設定ファイルの配置
+mise trust
+mise bootstrap dotfiles apply
 ```
 
-Brewfileに記載されているパッケージをインストールする場合は以下のコマンドを実行する。
+## Tips
+
+### Brewfileの更新
+
+以下のmise taskを実行することでBrewfileを最新化できます。
 
 ```bash
-brew bundle
+mise run dump
 ```
+
+## Refs
+
+- [mise](https://mise.jdx.dev/)
