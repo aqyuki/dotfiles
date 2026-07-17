@@ -63,3 +63,4 @@ mise.local.toml
 
 # Local settings
 .worktrees
+.memo
