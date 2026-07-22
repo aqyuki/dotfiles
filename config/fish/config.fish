@@ -40,6 +40,9 @@ mise activate fish --shims | source
 # uv
 uv generate-shell-completion fish | source
 
+# runn
+runn completion fish | source
+
 # Codex CLI
 codex completion fish | source
 
