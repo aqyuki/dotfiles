@@ -1,6 +1,6 @@
 tap "ariga/tap", trusted: true
 tap "d-kuro/tap", trusted: true
-tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap", trusted: true
+tap "k1low/tap", trusted: true
 # Securely store and access AWS credentials in development environments
 brew "aws-vault"
 # Interpreted, interactive, object-oriented programming language
@@ -67,6 +67,8 @@ brew "ykman"
 brew "ariga/tap/atlas", trusted: true
 # mo is a Markdown viewer that opens .md files in a browser.
 brew "k1low/tap/mo", trusted: true
+# octocov is a toolkit for collecting code metrics (code coverage, code to test ratio and test execution time).
+brew "k1low/tap/octocov", trusted: true
 # runn is a tool for running operations following a scenario.
 brew "k1low/tap/runn", trusted: true
 # Terminal-based AI coding assistant
