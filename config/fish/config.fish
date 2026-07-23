@@ -46,11 +46,12 @@ runn completion fish | source
 # Codex CLI
 codex completion fish | source
 
-# Docker
+# docker
 docker completion fish | source
 
-# Kubernetes
+# kubernetes
 kubectl completion fish | source
+helm completion fish | source
 
 # abbr
 abbr --add --global lg lazygit

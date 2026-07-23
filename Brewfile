@@ -1,6 +1,6 @@
 tap "ariga/tap", trusted: true
 tap "d-kuro/tap", trusted: true
-tap "k1low/tap", trusted: true
+tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap", trusted: true
 # Securely store and access AWS credentials in development environments
 brew "aws-vault"
 # Interpreted, interactive, object-oriented programming language
@@ -29,6 +29,8 @@ brew "gnupg"
 brew "gotestsum"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
+# Kubernetes package manager
+brew "helm"
 # Command-line pager for JSON data
 brew "jless"
 # Lightweight and flexible command-line JSON processor
