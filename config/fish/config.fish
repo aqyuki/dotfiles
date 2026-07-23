@@ -46,6 +46,12 @@ runn completion fish | source
 # Codex CLI
 codex completion fish | source
 
+# Docker
+docker completion fish | source
+
+# Kubernetes
+kubectl completion fish | source
+
 # abbr
 abbr --add --global lg lazygit
 abbr --add --global proot 'cd (git rev-parse --show-toplevel)'
