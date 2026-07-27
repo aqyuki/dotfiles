@@ -37,6 +37,9 @@ set -gx FZF_DEFAULT_OPTS "--height 50% --layout reverse --border rounded"
 mise activate fish | source
 mise activate fish --shims | source
 
+# atlas
+atlas completion fish | source
+
 # uv
 uv generate-shell-completion fish | source
 
