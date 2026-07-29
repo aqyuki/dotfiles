@@ -39,6 +39,9 @@
 [includeIf "gitdir:~/projects/github.com/yumemi/"]
   path = ~/.config/git/profiles/accenture
 
+[include]
+  path = ~/.config/git/config.local
+
 [delta]
   navigate = true
   dark = true

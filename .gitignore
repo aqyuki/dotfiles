@@ -3,5 +3,8 @@
 **/fish/conf.d
 **/fish/fish_variables
 
+# git
+**/git/*.local
+
 # nvim
 lazy-lock.json
