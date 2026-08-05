@@ -1,11 +1,10 @@
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never
+      command: delta --dark --paging=never
   parseEmoji: true
 worktree:
   defaultPath: ".worktrees"
-
 gui:
   tabWidth: 2
   theme:
@@ -28,10 +27,8 @@ gui:
       - "#cad3f5"
     searchingActiveBorderColor:
       - "#eed49f"
-
   authorColors:
     "*": "#b7bdf8"
-
 customCommands:
   - key: C
     description: "czg を利用して絵文字付きコミットを行います。"
