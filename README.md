@@ -1,56 +1,34 @@
 # dotfiles
 
-## About
-
-[しろね](https://github.com/aqyuki)の開発環境を管理しているリポジトリです。
-
-## Environment
-
-- OS : MacOS
-- Shell : fish
-- Terminal : Ghostty
+[mise](https://mise.jdx.dev/)のBootstrap機能を利用してdotfilesを管理しています。
 
 ## Setup
 
-dotfilesはmiseによって管理されています。現時点では設定ファイルの配置にのみmiseを利用しており依存ツールのインストール等は手動で行う必要があります。
-
-### Pre-requirements
-
-以下に示すツールは事前に導入していてください。
-
-- Homebrew
-
-### Installation
-
-> [!IMPORTANT]
-> GoおよびRustのツールチェーンは手動での導入としています。
-> 公式サイトの指示に従ってインストールを行ってください。
-
 ```bash
-# このリポジトリをcloneする
-git clone https://github.com/aqyuki/dotfiles ~/.dotfiles
+# 1. Homebrewのインストール
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$()"
 
-# ~/.dotfilesに移動
-cd ~/.dotfiles
+# 2. dotfilesのClose
+git clone https://github.com/aqyuki/dotfiles.git ~/.dotfiles
+cd .dotfiles
 
-# Homebrewで管理しているツール類をインストールする
-brew dump
-
-# 設定ファイルの配置
+# 3. mise bootstrapの実行
 mise trust
-mise bootstrap dotfiles apply
+mise bootstrap
+
+# 4. 開発ツールのインストール
+# Rust / Goのインストール完了後
+mise install
+
 ```
 
 ## Tips
 
-### Brewfileの更新
+### パッケージの同期
 
-以下のmise taskを実行することでBrewfileを最新化できます。
+dotfilesではHomebrew上のパッケージはmiseで管理し、CaskのパッケージはHomebrewでの直接管理を行っています。以下のタスクを実行することで各種パッケージを同期することができます。
 
 ```bash
-mise run dump
+mise run sync-packages
 ```
-
-## Refs
-
-- [mise](https://mise.jdx.dev/)

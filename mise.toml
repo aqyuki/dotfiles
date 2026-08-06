@@ -1,6 +1,55 @@
-[tasks.dump]
-description = "Brewfileを更新する"
-run = "brew bundle dump --force --no-go --no-cargo --no-vscode"
+[settings]
+dotfiles.root = "~/.dotfiles"
+dotfiles.default_mode = "symlink"
+
+[tasks.sync-packages]
+description = "パッケージを同期する"
+run = [
+  "mise bootstrap packages import --manager brew",
+  "brew bundle dump --cask --force"
+]
+
+[bootstrap.brew.taps]
+"ariga/tap" = "https://github.com/ariga/homebrew-tap.git"
+"k1low/tap" = "https://github.com/k1low/homebrew-tap.git"
+
+[bootstrap.packages]
+"brew:ariga/tap/atlas" = "latest"
+"brew:aws-vault" = "latest"
+"brew:awscli" = "latest"
+"brew:bat" = "latest"
+"brew:fd" = "latest"
+"brew:fish" = "latest"
+"brew:fzf" = "latest"
+"brew:gh" = "latest"
+"brew:ghq" = "latest"
+"brew:git-delta" = "latest"
+"brew:gitleaks" = "latest"
+"brew:gnupg" = "latest"
+"brew:gotestsum" = "latest"
+"brew:helm" = "latest"
+"brew:jless" = "latest"
+"brew:jq" = "latest"
+"brew:lazydocker" = "latest"
+"brew:lazygit" = "latest"
+"brew:lsd" = "latest"
+"brew:mise" = "latest"
+"brew:k1low/tap/mo" = "latest"
+"brew:neovim" = "latest"
+"brew:node" = "latest"
+"brew:k1low/tap/octocov" = "latest"
+"brew:pinentry-mac" = "latest"
+"brew:pkgconf" = "latest"
+"brew:pueue" = "latest"
+"brew:python@3.14" = "latest"
+"brew:ripgrep" = "latest"
+"brew:k1low/tap/runn" = "latest"
+"brew:starship" = "latest"
+"brew:tokei" = "latest"
+"brew:trufflehog" = "latest"
+"brew:uv" = "latest"
+"brew:vips" = "latest"
+"brew:ykman" = "latest"
 
 [dotfiles]
 "~/.config/fish" = { source = "config/fish" }
@@ -10,7 +59,3 @@ run = "brew bundle dump --force --no-go --no-cargo --no-vscode"
 "~/.config/mise" = { source = "config/mise" }
 "~/.config/nvim" = { source = "config/nvim" }
 "~/.config/starship.toml" = { source = "config/starship.toml" }
-
-[settings]
-dotfiles.root = "~/.dotfiles"
-dotfiles.default_mode = "symlink"
